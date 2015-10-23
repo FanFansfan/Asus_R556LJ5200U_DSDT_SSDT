@@ -25,7 +25,7 @@ DefinitionBlock ("SSDT6.aml", "SSDT", 2, "DptfTa", "DptfTabl", 0x00001000)
      * External declarations that were imported from
      * the reference file [refs.txt]
      */
-    External (_SB_.PCI0.PEG0.PEGP.SGPO, MethodObj)    // 2 Arguments
+    
 
     External (_PR_.AAC0, FieldUnitObj)
     External (_PR_.ACRT, FieldUnitObj)
@@ -74,6 +74,7 @@ DefinitionBlock ("SSDT6.aml", "SSDT", 2, "DptfTa", "DptfTabl", 0x00001000)
     External (_SB_.PCI0.GFX0.LCDD._BCM, MethodObj)    // 1 Arguments
     External (_SB_.PCI0.GFX0.LCDD._BQC, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.GFX0.LCDD._DCS, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.PEG0.PEGP.SGPO, MethodObj)    // 2 Arguments
     External (_SB_.PCI0.LPCB.EC0_, DeviceObj)
     External (_SB_.PCI0.LPCB.EC0_.RRAM, MethodObj)    // 1 Arguments
     External (_SB_.PCI0.LPCB.EC0_.TH1L, FieldUnitObj)

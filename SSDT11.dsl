@@ -25,7 +25,7 @@ DefinitionBlock ("SSDT11.aml", "SSDT", 1, "OptRef", "OptTabl", 0x00001000)
      * External declarations that were imported from
      * the reference file [refs.txt]
      */
-    External (_SB_.PCI0.PEG0.PEGP.SGPO, MethodObj)    // 2 Arguments
+    
 
     External (_SB_.PCI0, DeviceObj)
     External (_SB_.PCI0.GFX0, DeviceObj)
@@ -35,6 +35,7 @@ DefinitionBlock ("SSDT11.aml", "SSDT", 1, "OptRef", "OptTabl", 0x00001000)
     External (_SB_.PCI0.RP05.PEGP.SGOF, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.RP05.PEGP.SGON, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.RP05.PEGP.SGST, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.PEG0.PEGP.SGPO, MethodObj)    // 2 Arguments
     External (DID1, FieldUnitObj)
     External (DID2, FieldUnitObj)
     External (DID3, FieldUnitObj)

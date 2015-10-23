@@ -3800,31 +3800,6 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                     })
                 }
 
-                Zero
-                Zero
-                Zero
-                Zero
-                Zero
-                Zero
-                Zero
-                Zero
-                Zero
-                Zero
-                Zero
-                Zero
-                Zero
-                Zero
-                Zero
-                Zero
-                Zero
-                Zero
-                Zero
-                Zero
-                Zero
-                Zero
-                Zero
-                Zero
-                Zero
                 Method (HPME, 0, Serialized)
                 {
                     Store (Zero, Local0)
@@ -3850,14 +3825,6 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                                 Store (Zero, Local0)
                             }
                         }
-
-                        Zero
-                        Zero
-                        Zero
-                        Zero
-                        Zero
-                        Zero
-                        Zero
                     }
                 }
 
@@ -9186,13 +9153,9 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
 
     Method (ADBG, 1, Serialized)
     {
-        If (CondRefOf (MDBG))
-        {
-            Return (MDBG) /* External reference */
-            Arg0
-        }
+        
+        Return(0)
 
-        Return (Zero)
     }
 
     OperationRegion (SPRT, SystemIO, 0xB2, 0x02)

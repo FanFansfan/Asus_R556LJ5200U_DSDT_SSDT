@@ -47,7 +47,7 @@ DefinitionBlock ("SSDT9.aml", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
      * External declarations that were imported from
      * the reference file [refs.txt]
      */
-    External (_SB_.PCI0.PEG0.PEGP.SGPO, MethodObj)    // 2 Arguments
+    
 
     External (_SB_.BRTI, FieldUnitObj)
     External (_SB_.CSTE, FieldUnitObj)
@@ -67,6 +67,7 @@ DefinitionBlock ("SSDT9.aml", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
     External (_SB_.PCI0.PEG1.PEGP, DeviceObj)
     External (_SB_.PCI0.PEG2, DeviceObj)
     External (_SB_.PCI0.PEG2.PEGP, DeviceObj)
+    External (_SB_.PCI0.PEG0.PEGP.SGPO, MethodObj)    // 2 Arguments
     External (_SB_.SFUN, FieldUnitObj)
     External (_SB_.SSTE, FieldUnitObj)
     External (_SB_.VBIF, FieldUnitObj)
