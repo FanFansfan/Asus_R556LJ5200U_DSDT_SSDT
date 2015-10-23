@@ -1,0 +1,2 @@
+# Asus_R556LJ5200U_DSDT_SSDT
+Asus_R556LJ5200U_DSDT_SSDT for Hackintoish
