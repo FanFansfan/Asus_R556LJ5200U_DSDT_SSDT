@@ -20482,7 +20482,7 @@ DT2D,8
                     }
                     Else
                     {
-                        Store (One, Local0)
+                        Store (Zero, Local0)
                     }
                 }
                 Else
