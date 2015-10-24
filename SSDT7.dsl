@@ -77,11 +77,11 @@ DefinitionBlock ("SSDT7.aml", "SSDT", 2, "CppcTa", "CppcTabl", 0x00001000)
 
             Method (GPRN, 0, Serialized)
             {
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 While (One)
                 {
-                    Store (ToInteger (\TCNT), _T_0) /* \_SB_.PCCD.GPRN._T_0 */
-                    If (LEqual (_T_0, 0x08))
+                    Store (ToInteger (\TCNT), T_0) /* \_SB_.PCCD.GPRN.T_0 */
+                    If (LEqual (T_0, 0x08))
                     {
                         Notify (\_PR.CPU0, 0x83) // Device-Specific Change
                         Notify (\_PR.CPU1, 0x83) // Device-Specific Change
@@ -94,7 +94,7 @@ DefinitionBlock ("SSDT7.aml", "SSDT", 2, "CppcTa", "CppcTabl", 0x00001000)
                     }
                     Else
                     {
-                        If (LEqual (_T_0, 0x04))
+                        If (LEqual (T_0, 0x04))
                         {
                             Notify (\_PR.CPU0, 0x83) // Device-Specific Change
                             Notify (\_PR.CPU1, 0x83) // Device-Specific Change
@@ -103,7 +103,7 @@ DefinitionBlock ("SSDT7.aml", "SSDT", 2, "CppcTa", "CppcTabl", 0x00001000)
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x02))
+                            If (LEqual (T_0, 0x02))
                             {
                                 Notify (\_PR.CPU0, 0x83) // Device-Specific Change
                                 Notify (\_PR.CPU1, 0x83) // Device-Specific Change

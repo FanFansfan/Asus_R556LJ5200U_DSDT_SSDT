@@ -70,7 +70,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
     External (_SB_.IAOE.IBT1, UnknownObj)
     External (_SB_.IAOE.IMDS, UnknownObj)
     External (_SB_.IAOE.ISEF, UnknownObj)
-    External (_SB_.IAOE.ITMR, UnknownObj)
+    External (_SB_.IAOE.TIMR, UnknownObj)
     External (_SB_.IAOE.RCTM, UnknownObj)
     External (_SB_.IAOE.WKRS, UnknownObj)
     External (_SB_.IFFS.FFSS, UnknownObj)
@@ -2737,13 +2737,13 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                 })
                 Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
-                    Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                     If (LEqual (Arg0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
                     {
                         While (One)
                         {
-                            Store (ToInteger (Arg2), _T_0) /* \_SB_.PCI0.RP01._DSM._T_0 */
-                            If (LEqual (_T_0, Zero))
+                            Store (ToInteger (Arg2), T_0) /* \_SB_.PCI0.RP01._DSM.T_0 */
+                            If (LEqual (T_0, Zero))
                             {
                                 Name (OPTS, Buffer (0x02)
                                 {
@@ -2772,7 +2772,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x04))
+                                If (LEqual (T_0, 0x04))
                                 {
                                     If (LGreaterEqual (Arg1, 0x02))
                                     {
@@ -2796,7 +2796,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x06))
+                                    If (LEqual (T_0, 0x06))
                                     {
                                         If (LGreaterEqual (Arg1, 0x02))
                                         {
@@ -2970,13 +2970,13 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                 })
                 Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
-                    Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                     If (LEqual (Arg0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
                     {
                         While (One)
                         {
-                            Store (ToInteger (Arg2), _T_0) /* \_SB_.PCI0.RP02._DSM._T_0 */
-                            If (LEqual (_T_0, Zero))
+                            Store (ToInteger (Arg2), T_0) /* \_SB_.PCI0.RP02._DSM.T_0 */
+                            If (LEqual (T_0, Zero))
                             {
                                 Name (OPTS, Buffer (0x02)
                                 {
@@ -3005,7 +3005,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x04))
+                                If (LEqual (T_0, 0x04))
                                 {
                                     If (LGreaterEqual (Arg1, 0x02))
                                     {
@@ -3029,7 +3029,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x06))
+                                    If (LEqual (T_0, 0x06))
                                     {
                                         If (LGreaterEqual (Arg1, 0x02))
                                         {
@@ -3203,13 +3203,13 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                 })
                 Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
-                    Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                     If (LEqual (Arg0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
                     {
                         While (One)
                         {
-                            Store (ToInteger (Arg2), _T_0) /* \_SB_.PCI0.RP03._DSM._T_0 */
-                            If (LEqual (_T_0, Zero))
+                            Store (ToInteger (Arg2), T_0) /* \_SB_.PCI0.RP03._DSM.T_0 */
+                            If (LEqual (T_0, Zero))
                             {
                                 Name (OPTS, Buffer (0x02)
                                 {
@@ -3238,7 +3238,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x04))
+                                If (LEqual (T_0, 0x04))
                                 {
                                     If (LGreaterEqual (Arg1, 0x02))
                                     {
@@ -3262,7 +3262,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x06))
+                                    If (LEqual (T_0, 0x06))
                                     {
                                         If (LGreaterEqual (Arg1, 0x02))
                                         {
@@ -3460,13 +3460,13 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                 })
                 Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
-                    Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                     If (LEqual (Arg0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
                     {
                         While (One)
                         {
-                            Store (ToInteger (Arg2), _T_0) /* \_SB_.PCI0.RP04._DSM._T_0 */
-                            If (LEqual (_T_0, Zero))
+                            Store (ToInteger (Arg2), T_0) /* \_SB_.PCI0.RP04._DSM.T_0 */
+                            If (LEqual (T_0, Zero))
                             {
                                 Name (OPTS, Buffer (0x02)
                                 {
@@ -3495,7 +3495,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x04))
+                                If (LEqual (T_0, 0x04))
                                 {
                                     If (LGreaterEqual (Arg1, 0x02))
                                     {
@@ -3519,7 +3519,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x06))
+                                    If (LEqual (T_0, 0x06))
                                     {
                                         If (LGreaterEqual (Arg1, 0x02))
                                         {
@@ -3730,13 +3730,13 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                 })
                 Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
-                    Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                     If (LEqual (Arg0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
                     {
                         While (One)
                         {
-                            Store (ToInteger (Arg2), _T_0) /* \_SB_.PCI0.RP05._DSM._T_0 */
-                            If (LEqual (_T_0, Zero))
+                            Store (ToInteger (Arg2), T_0) /* \_SB_.PCI0.RP05._DSM.T_0 */
+                            If (LEqual (T_0, Zero))
                             {
                                 Name (OPTS, Buffer (0x02)
                                 {
@@ -3765,7 +3765,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x04))
+                                If (LEqual (T_0, 0x04))
                                 {
                                     If (LGreaterEqual (Arg1, 0x02))
                                     {
@@ -3789,7 +3789,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x06))
+                                    If (LEqual (T_0, 0x06))
                                     {
                                         If (LGreaterEqual (Arg1, 0x02))
                                         {
@@ -3952,13 +3952,13 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                 })
                 Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
-                    Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                     If (LEqual (Arg0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
                     {
                         While (One)
                         {
-                            Store (ToInteger (Arg2), _T_0) /* \_SB_.PCI0.RP06._DSM._T_0 */
-                            If (LEqual (_T_0, Zero))
+                            Store (ToInteger (Arg2), T_0) /* \_SB_.PCI0.RP06._DSM.T_0 */
+                            If (LEqual (T_0, Zero))
                             {
                                 Name (OPTS, Buffer (0x02)
                                 {
@@ -3987,7 +3987,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x04))
+                                If (LEqual (T_0, 0x04))
                                 {
                                     If (LGreaterEqual (Arg1, 0x02))
                                     {
@@ -4011,7 +4011,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x06))
+                                    If (LEqual (T_0, 0x06))
                                     {
                                         If (LGreaterEqual (Arg1, 0x02))
                                         {
@@ -4185,13 +4185,13 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                 })
                 Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
-                    Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                     If (LEqual (Arg0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
                     {
                         While (One)
                         {
-                            Store (ToInteger (Arg2), _T_0) /* \_SB_.PCI0.RP07._DSM._T_0 */
-                            If (LEqual (_T_0, Zero))
+                            Store (ToInteger (Arg2), T_0) /* \_SB_.PCI0.RP07._DSM.T_0 */
+                            If (LEqual (T_0, Zero))
                             {
                                 Name (OPTS, Buffer (0x02)
                                 {
@@ -4220,7 +4220,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x04))
+                                If (LEqual (T_0, 0x04))
                                 {
                                     If (LGreaterEqual (Arg1, 0x02))
                                     {
@@ -4244,7 +4244,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x06))
+                                    If (LEqual (T_0, 0x06))
                                     {
                                         If (LGreaterEqual (Arg1, 0x02))
                                         {
@@ -4418,13 +4418,13 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                 })
                 Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
-                    Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                     If (LEqual (Arg0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
                     {
                         While (One)
                         {
-                            Store (ToInteger (Arg2), _T_0) /* \_SB_.PCI0.RP08._DSM._T_0 */
-                            If (LEqual (_T_0, Zero))
+                            Store (ToInteger (Arg2), T_0) /* \_SB_.PCI0.RP08._DSM.T_0 */
+                            If (LEqual (T_0, Zero))
                             {
                                 Name (OPTS, Buffer (0x02)
                                 {
@@ -4453,7 +4453,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x04))
+                                If (LEqual (T_0, 0x04))
                                 {
                                     If (LGreaterEqual (Arg1, 0x02))
                                     {
@@ -4477,7 +4477,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x06))
+                                    If (LEqual (T_0, 0x06))
                                     {
                                         If (LGreaterEqual (Arg1, 0x02))
                                         {
@@ -6098,13 +6098,13 @@ If (Arg0)
                         Alias (SBV1, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
-                            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, ToUUID ("a5fc708f-8775-4ba6-bd0c-ba90a1ec72f8")))
                             {
                                 While (One)
                                 {
-                                    Store (ToInteger (Arg2), _T_0) /* \_SB_.PCI0.EHC1.HUBN.PR01.PR14._DSM._T_0 */
-                                    If (LEqual (_T_0, Zero))
+                                    Store (ToInteger (Arg2), T_0) /* \_SB_.PCI0.EHC1.HUBN.PR01.PR14._DSM.T_0 */
+                                    If (LEqual (T_0, Zero))
                                     {
                                         If (LEqual (Arg1, One))
                                         {
@@ -6123,7 +6123,7 @@ If (Arg0)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, One))
+                                        If (LEqual (T_0, One))
                                         {
                                             If (LEqual (SDGV, 0xFF))
                                             {
@@ -6136,7 +6136,7 @@ If (Arg0)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x02))
+                                            If (LEqual (T_0, 0x02))
                                             {
                                                 Return (SDGV) /* \_SB_.PCI0.EHC1.HUBN.PR01.PR14.SDGV */
                                             }
@@ -6157,13 +6157,13 @@ If (Arg0)
                         Alias (SBV2, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
-                            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, ToUUID ("a5fc708f-8775-4ba6-bd0c-ba90a1ec72f8")))
                             {
                                 While (One)
                                 {
-                                    Store (ToInteger (Arg2), _T_0) /* \_SB_.PCI0.EHC1.HUBN.PR01.PR15._DSM._T_0 */
-                                    If (LEqual (_T_0, Zero))
+                                    Store (ToInteger (Arg2), T_0) /* \_SB_.PCI0.EHC1.HUBN.PR01.PR15._DSM.T_0 */
+                                    If (LEqual (T_0, Zero))
                                     {
                                         If (LEqual (Arg1, One))
                                         {
@@ -6182,7 +6182,7 @@ If (Arg0)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, One))
+                                        If (LEqual (T_0, One))
                                         {
                                             If (LEqual (SDGV, 0xFF))
                                             {
@@ -6195,7 +6195,7 @@ If (Arg0)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x02))
+                                            If (LEqual (T_0, 0x02))
                                             {
                                                 Return (SDGV) /* \_SB_.PCI0.EHC1.HUBN.PR01.PR15.SDGV */
                                             }
@@ -6216,13 +6216,13 @@ If (Arg0)
                         Alias (SBV1, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
-                            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, ToUUID ("a5fc708f-8775-4ba6-bd0c-ba90a1ec72f8")))
                             {
                                 While (One)
                                 {
-                                    Store (ToInteger (Arg2), _T_0) /* \_SB_.PCI0.EHC1.HUBN.PR01.PR16._DSM._T_0 */
-                                    If (LEqual (_T_0, Zero))
+                                    Store (ToInteger (Arg2), T_0) /* \_SB_.PCI0.EHC1.HUBN.PR01.PR16._DSM.T_0 */
+                                    If (LEqual (T_0, Zero))
                                     {
                                         If (LEqual (Arg1, One))
                                         {
@@ -6241,7 +6241,7 @@ If (Arg0)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, One))
+                                        If (LEqual (T_0, One))
                                         {
                                             If (LEqual (SDGV, 0xFF))
                                             {
@@ -6254,7 +6254,7 @@ If (Arg0)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x02))
+                                            If (LEqual (T_0, 0x02))
                                             {
                                                 Return (SDGV) /* \_SB_.PCI0.EHC1.HUBN.PR01.PR16.SDGV */
                                             }
@@ -6275,13 +6275,13 @@ If (Arg0)
                         Alias (SBV2, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
-                            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, ToUUID ("a5fc708f-8775-4ba6-bd0c-ba90a1ec72f8")))
                             {
                                 While (One)
                                 {
-                                    Store (ToInteger (Arg2), _T_0) /* \_SB_.PCI0.EHC1.HUBN.PR01.PR17._DSM._T_0 */
-                                    If (LEqual (_T_0, Zero))
+                                    Store (ToInteger (Arg2), T_0) /* \_SB_.PCI0.EHC1.HUBN.PR01.PR17._DSM.T_0 */
+                                    If (LEqual (T_0, Zero))
                                     {
                                         If (LEqual (Arg1, One))
                                         {
@@ -6300,7 +6300,7 @@ If (Arg0)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, One))
+                                        If (LEqual (T_0, One))
                                         {
                                             If (LEqual (SDGV, 0xFF))
                                             {
@@ -6313,7 +6313,7 @@ If (Arg0)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x02))
+                                            If (LEqual (T_0, 0x02))
                                             {
                                                 Return (SDGV) /* \_SB_.PCI0.EHC1.HUBN.PR01.PR17.SDGV */
                                             }
@@ -6426,13 +6426,13 @@ If (Arg0)
                         Alias (SBV1, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
-                            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, ToUUID ("a5fc708f-8775-4ba6-bd0c-ba90a1ec72f8")))
                             {
                                 While (One)
                                 {
-                                    Store (ToInteger (Arg2), _T_0) /* \_SB_.PCI0.EHC2.HUBN.PR01.PR12._DSM._T_0 */
-                                    If (LEqual (_T_0, Zero))
+                                    Store (ToInteger (Arg2), T_0) /* \_SB_.PCI0.EHC2.HUBN.PR01.PR12._DSM.T_0 */
+                                    If (LEqual (T_0, Zero))
                                     {
                                         If (LEqual (Arg1, One))
                                         {
@@ -6451,7 +6451,7 @@ If (Arg0)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, One))
+                                        If (LEqual (T_0, One))
                                         {
                                             If (LEqual (SDGV, 0xFF))
                                             {
@@ -6464,7 +6464,7 @@ If (Arg0)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x02))
+                                            If (LEqual (T_0, 0x02))
                                             {
                                                 Return (SDGV) /* \_SB_.PCI0.EHC2.HUBN.PR01.PR12.SDGV */
                                             }
@@ -6485,13 +6485,13 @@ If (Arg0)
                         Alias (SBV2, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
-                            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, ToUUID ("a5fc708f-8775-4ba6-bd0c-ba90a1ec72f8")))
                             {
                                 While (One)
                                 {
-                                    Store (ToInteger (Arg2), _T_0) /* \_SB_.PCI0.EHC2.HUBN.PR01.PR13._DSM._T_0 */
-                                    If (LEqual (_T_0, Zero))
+                                    Store (ToInteger (Arg2), T_0) /* \_SB_.PCI0.EHC2.HUBN.PR01.PR13._DSM.T_0 */
+                                    If (LEqual (T_0, Zero))
                                     {
                                         If (LEqual (Arg1, One))
                                         {
@@ -6510,7 +6510,7 @@ If (Arg0)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, One))
+                                        If (LEqual (T_0, One))
                                         {
                                             If (LEqual (SDGV, 0xFF))
                                             {
@@ -6523,7 +6523,7 @@ If (Arg0)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x02))
+                                            If (LEqual (T_0, 0x02))
                                             {
                                                 Return (SDGV) /* \_SB_.PCI0.EHC2.HUBN.PR01.PR13.SDGV */
                                             }
@@ -6637,95 +6637,95 @@ If (Arg0)
 
             Method (PRTE, 1, Serialized)
             {
-                Name (_T_2, Zero)  // _T_x: Emitted by ASL Compiler
-                Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_2, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 If (LLessEqual (Arg0, XHPC))
                 {
                     If (LEqual (PCHV (), LPTH))
                     {
                         While (One)
                         {
-                            Store (Arg0, _T_0) /* \_SB_.PCI0.XHC_.PRTE._T_0 */
-                            If (LEqual (_T_0, One))
+                            Store (Arg0, T_0) /* \_SB_.PCI0.XHC_.PRTE.T_0 */
+                            If (LEqual (T_0, One))
                             {
                                 Return (And (PR2, One))
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x02))
+                                If (LEqual (T_0, 0x02))
                                 {
                                     Return (And (PR2, 0x02))
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x03))
+                                    If (LEqual (T_0, 0x03))
                                     {
                                         Return (And (PR2, 0x04))
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x04))
+                                        If (LEqual (T_0, 0x04))
                                         {
                                             Return (And (PR2, 0x08))
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x05))
+                                            If (LEqual (T_0, 0x05))
                                             {
                                                 Return (And (PR2, 0x0100))
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0x06))
+                                                If (LEqual (T_0, 0x06))
                                                 {
                                                     Return (And (PR2, 0x0200))
                                                 }
                                                 Else
                                                 {
-                                                    If (LEqual (_T_0, 0x07))
+                                                    If (LEqual (T_0, 0x07))
                                                     {
                                                         Return (And (PR2, 0x0400))
                                                     }
                                                     Else
                                                     {
-                                                        If (LEqual (_T_0, 0x08))
+                                                        If (LEqual (T_0, 0x08))
                                                         {
                                                             Return (And (PR2, 0x0800))
                                                         }
                                                         Else
                                                         {
-                                                            If (LEqual (_T_0, 0x09))
+                                                            If (LEqual (T_0, 0x09))
                                                             {
                                                                 Return (And (PR2, 0x10))
                                                             }
                                                             Else
                                                             {
-                                                                If (LEqual (_T_0, 0x0A))
+                                                                If (LEqual (T_0, 0x0A))
                                                                 {
                                                                     Return (And (PR2, 0x20))
                                                                 }
                                                                 Else
                                                                 {
-                                                                    If (LEqual (_T_0, 0x0B))
+                                                                    If (LEqual (T_0, 0x0B))
                                                                     {
                                                                         Return (And (PR2, 0x1000))
                                                                     }
                                                                     Else
                                                                     {
-                                                                        If (LEqual (_T_0, 0x0C))
+                                                                        If (LEqual (T_0, 0x0C))
                                                                         {
                                                                             Return (And (PR2, 0x2000))
                                                                         }
                                                                         Else
                                                                         {
-                                                                            If (LEqual (_T_0, 0x0D))
+                                                                            If (LEqual (T_0, 0x0D))
                                                                             {
                                                                                 Return (And (PR2, 0x40))
                                                                             }
                                                                             Else
                                                                             {
-                                                                                If (LEqual (_T_0, 0x0E))
+                                                                                If (LEqual (T_0, 0x0E))
                                                                                 {
                                                                                     Return (And (PR2, 0x80))
                                                                                 }
@@ -6754,62 +6754,62 @@ If (Arg0)
                     {
                         While (One)
                         {
-                            Store (Arg0, _T_1) /* \_SB_.PCI0.XHC_.PRTE._T_1 */
-                            If (LEqual (_T_1, One))
+                            Store (Arg0, T_1) /* \_SB_.PCI0.XHC_.PRTE.T_1 */
+                            If (LEqual (T_1, One))
                             {
                                 Return (And (PR2, One))
                             }
                             Else
                             {
-                                If (LEqual (_T_1, 0x02))
+                                If (LEqual (T_1, 0x02))
                                 {
                                     Return (And (PR2, 0x02))
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_1, 0x03))
+                                    If (LEqual (T_1, 0x03))
                                     {
                                         Return (And (PR2, 0x04))
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_1, 0x04))
+                                        If (LEqual (T_1, 0x04))
                                         {
                                             Return (And (PR2, 0x08))
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_1, 0x05))
+                                            If (LEqual (T_1, 0x05))
                                             {
                                                 Return (And (PR2, 0x10))
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_1, 0x06))
+                                                If (LEqual (T_1, 0x06))
                                                 {
                                                     Return (And (PR2, 0x20))
                                                 }
                                                 Else
                                                 {
-                                                    If (LEqual (_T_1, 0x07))
+                                                    If (LEqual (T_1, 0x07))
                                                     {
                                                         Return (And (PR2, 0x40))
                                                     }
                                                     Else
                                                     {
-                                                        If (LEqual (_T_1, 0x08))
+                                                        If (LEqual (T_1, 0x08))
                                                         {
                                                             Return (And (PR2, 0x80))
                                                         }
                                                         Else
                                                         {
-                                                            If (LEqual (_T_1, 0x09))
+                                                            If (LEqual (T_1, 0x09))
                                                             {
                                                                 Return (And (PR2, 0x0100))
                                                             }
                                                             Else
                                                             {
-                                                                If (LEqual (_T_1, 0x0A))
+                                                                If (LEqual (T_1, 0x0A))
                                                                 {
                                                                     Return (And (PR2, 0x0200))
                                                                 }
@@ -6855,38 +6855,38 @@ If (Arg0)
                     Subtract (Arg0, XSPA, Local0)
                     While (One)
                     {
-                        Store (Local0, _T_2) /* \_SB_.PCI0.XHC_.PRTE._T_2 */
-                        If (LEqual (_T_2, Zero))
+                        Store (Local0, T_2) /* \_SB_.PCI0.XHC_.PRTE.T_2 */
+                        If (LEqual (T_2, Zero))
                         {
                             Return (And (PR3, One))
                         }
                         Else
                         {
-                            If (LEqual (_T_2, One))
+                            If (LEqual (T_2, One))
                             {
                                 Return (And (PR3, 0x02))
                             }
                             Else
                             {
-                                If (LEqual (_T_2, 0x02))
+                                If (LEqual (T_2, 0x02))
                                 {
                                     Return (And (PR3, 0x04))
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_2, 0x03))
+                                    If (LEqual (T_2, 0x03))
                                     {
                                         Return (And (PR3, 0x08))
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_2, 0x04))
+                                        If (LEqual (T_2, 0x04))
                                         {
                                             Return (And (PR3, 0x10))
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_2, 0x05))
+                                            If (LEqual (T_2, 0x05))
                                             {
                                                 Return (And (PR3, 0x20))
                                             }
@@ -9343,7 +9343,7 @@ If (Arg0)
                 Store (Zero, \_SB.IAOE.RCTM) /* External reference */
             }
 
-            If (LAnd (And (ICNF, 0x10), LEqual (\_SB.IAOE.ITMR, Zero))) {}
+            If (LAnd (And (ICNF, 0x10), LEqual (\_SB.IAOE.TIMR, Zero))) {}
             Else
             {
                 If (LEqual (Arg0, 0x04))
@@ -9506,7 +9506,7 @@ If (Arg0)
                 }
             }
 
-            If (LEqual (\_SB.IAOE.ITMR, Zero)) {}
+            If (LEqual (\_SB.IAOE.TIMR, Zero)) {}
             If (CondRefOf (\_SB.IAOE.ECTM))
             {
                 Store (Zero, \_SB.IAOE.ECTM) /* External reference */
@@ -10025,54 +10025,54 @@ If (Arg0)
 
     Method (UXDV, 1, Serialized)
     {
-        Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+        Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
         Store (0xFF, Local0)
         While (One)
         {
-            Store (Add (Arg0, Zero), _T_0) /* \UXDV._T_0 */
-            If (LEqual (_T_0, 0x03F8))
+            Store (Add (Arg0, Zero), T_0) /* \UXDV.T_0 */
+            If (LEqual (T_0, 0x03F8))
             {
                 Store (Zero, Local0)
             }
             Else
             {
-                If (LEqual (_T_0, 0x02F8))
+                If (LEqual (T_0, 0x02F8))
                 {
                     Store (One, Local0)
                 }
                 Else
                 {
-                    If (LEqual (_T_0, 0x0220))
+                    If (LEqual (T_0, 0x0220))
                     {
                         Store (0x02, Local0)
                     }
                     Else
                     {
-                        If (LEqual (_T_0, 0x0228))
+                        If (LEqual (T_0, 0x0228))
                         {
                             Store (0x03, Local0)
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x0238))
+                            If (LEqual (T_0, 0x0238))
                             {
                                 Store (0x04, Local0)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x02E8))
+                                If (LEqual (T_0, 0x02E8))
                                 {
                                     Store (0x05, Local0)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x0338))
+                                    If (LEqual (T_0, 0x0338))
                                     {
                                         Store (0x06, Local0)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x03E8))
+                                        If (LEqual (T_0, 0x03E8))
                                         {
                                             Store (0x07, Local0)
                                         }
@@ -10092,11 +10092,11 @@ If (Arg0)
 
     Method (RRIO, 4, Serialized)
     {
-        Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+        Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
         While (One)
         {
-            Store (Add (Arg0, Zero), _T_0) /* \RRIO._T_0 */
-            If (LEqual (_T_0, Zero))
+            Store (Add (Arg0, Zero), T_0) /* \RRIO.T_0 */
+            If (LEqual (T_0, Zero))
             {
                 Store (Zero, CALE) /* \CALE */
                 Store (UXDV (Arg2), Local0)
@@ -10112,7 +10112,7 @@ If (Arg0)
             }
             Else
             {
-                If (LEqual (_T_0, One))
+                If (LEqual (T_0, One))
                 {
                     Store (Zero, CBLE) /* \CBLE */
                     Store (UXDV (Arg2), Local0)
@@ -10128,7 +10128,7 @@ If (Arg0)
                 }
                 Else
                 {
-                    If (LEqual (_T_0, 0x02))
+                    If (LEqual (T_0, 0x02))
                     {
                         Store (Zero, LTLE) /* \LTLE */
                         If (LEqual (Arg2, 0x0378))
@@ -10153,7 +10153,7 @@ If (Arg0)
                     }
                     Else
                     {
-                        If (LEqual (_T_0, 0x03))
+                        If (LEqual (T_0, 0x03))
                         {
                             Store (Zero, FDLE) /* \FDLE */
                             If (LEqual (Arg2, 0x03F0))
@@ -10173,7 +10173,7 @@ If (Arg0)
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x08))
+                            If (LEqual (T_0, 0x08))
                             {
                                 If (LEqual (Arg2, 0x0200))
                                 {
@@ -10201,7 +10201,7 @@ If (Arg0)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x09))
+                                If (LEqual (T_0, 0x09))
                                 {
                                     If (LEqual (Arg2, 0x0200))
                                     {
@@ -10229,7 +10229,7 @@ If (Arg0)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x0A))
+                                    If (LEqual (T_0, 0x0A))
                                     {
                                         If (LOr (LEqual (Arg2, 0x60), LEqual (Arg2, 0x64)))
                                         {
@@ -10245,7 +10245,7 @@ If (Arg0)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x0B))
+                                        If (LEqual (T_0, 0x0B))
                                         {
                                             If (LOr (LEqual (Arg2, 0x62), LEqual (Arg2, 0x66)))
                                             {
@@ -10261,7 +10261,7 @@ If (Arg0)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x0C))
+                                            If (LEqual (T_0, 0x0C))
                                             {
                                                 If (LEqual (Arg2, 0x2E))
                                                 {
@@ -10289,7 +10289,7 @@ If (Arg0)
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0x0D))
+                                                If (LEqual (T_0, 0x0D))
                                                 {
                                                     If (LEqual (Arg2, 0x2E))
                                                     {
@@ -10673,8 +10673,8 @@ If (Arg0)
 
         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
         {
-            Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
             If (LEqual (Arg0, ToUUID ("1730e71d-e5dd-4a34-be57-4d76b6a2fe37")))
             {
                 If (LEqual (Arg2, Zero))
@@ -10696,14 +10696,14 @@ If (Arg0)
                 {
                     While (One)
                     {
-                        Store (DerefOf (Index (Arg3, Zero)), _T_0) /* \_SB_.PCI0.ADSP._DSM._T_0 */
-                        If (LEqual (_T_0, Zero))
+                        Store (DerefOf (Index (Arg3, Zero)), T_0) /* \_SB_.PCI0.ADSP._DSM.T_0 */
+                        If (LEqual (T_0, Zero))
                         {
                             P8XH (Zero, 0x5C)
                         }
                         Else
                         {
-                            If (LEqual (_T_0, One))
+                            If (LEqual (T_0, One))
                             {
                                 If (CondRefOf (\_SB.SLPB))
                                 {
@@ -10713,10 +10713,10 @@ If (Arg0)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x02)) {}
+                                If (LEqual (T_0, 0x02)) {}
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x03)) {}
+                                    If (LEqual (T_0, 0x03)) {}
                                 }
                             }
                         }
@@ -10738,8 +10738,8 @@ If (Arg0)
                     ADBG ("Audio Player call")
                     While (One)
                     {
-                        Store (Arg2, _T_1) /* \_SB_.PCI0.ADSP._DSM._T_1 */
-                        If (LEqual (_T_1, Zero))
+                        Store (Arg2, T_1) /* \_SB_.PCI0.ADSP._DSM.T_1 */
+                        If (LEqual (T_1, Zero))
                         {
                             If (LEqual (Arg1, Zero))
                             {
@@ -10758,7 +10758,7 @@ If (Arg0)
                         }
                         Else
                         {
-                            If (LEqual (_T_1, One))
+                            If (LEqual (T_1, One))
                             {
                                 If (LEqual (DerefOf (Index (Arg3, Zero)), Zero))
                                 {
@@ -10972,7 +10972,7 @@ If (Arg0)
             Name (_ADR, 0x00160000)  // _ADR: Address
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 If (LEqual (Arg0, ToUUID ("1730e71d-e5dd-4a34-be57-4d76b6a2fe37")))
                 {
                     If (LEqual (Arg2, Zero))
@@ -10994,14 +10994,14 @@ If (Arg0)
                     {
                         While (One)
                         {
-                            Store (DerefOf (Index (Arg3, Zero)), _T_0) /* \_SB_.PCI0.HECI._DSM._T_0 */
-                            If (LEqual (_T_0, Zero))
+                            Store (DerefOf (Index (Arg3, Zero)), T_0) /* \_SB_.PCI0.HECI._DSM.T_0 */
+                            If (LEqual (T_0, Zero))
                             {
                                 P8XH (Zero, 0x5C)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, One))
+                                If (LEqual (T_0, One))
                                 {
                                     If (CondRefOf (\_SB.SLPB))
                                     {
@@ -11011,10 +11011,10 @@ If (Arg0)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x02)) {}
+                                    If (LEqual (T_0, 0x02)) {}
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x03)) {}
+                                        If (LEqual (T_0, 0x03)) {}
                                     }
                                 }
                             }
@@ -11044,14 +11044,14 @@ If (Arg0)
     {
         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
         {
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
             If (LEqual (Arg0, ToUUID ("c5c5d98d-360e-43af-b7c1-3ede8f669ad3")))
             {
                 ADBG ("Audio Player call")
                 While (One)
                 {
-                    Store (Arg2, _T_0) /* \_SB_.PCI0.HDEF._DSM._T_0 */
-                    If (LEqual (_T_0, Zero))
+                    Store (Arg2, T_0) /* \_SB_.PCI0.HDEF._DSM.T_0 */
+                    If (LEqual (T_0, Zero))
                     {
                         If (LEqual (Arg1, Zero))
                         {
@@ -11070,7 +11070,7 @@ If (Arg0)
                     }
                     Else
                     {
-                        If (LEqual (_T_0, One))
+                        If (LEqual (T_0, One))
                         {
                             If (LEqual (DerefOf (Index (Arg3, Zero)), Zero))
                             {
@@ -12349,8 +12349,8 @@ If (Arg0)
         {
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
-                Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 If (LEqual (Arg0, ToUUID ("1730e71d-e5dd-4a34-be57-4d76b6a2fe37")))
                 {
                     If (LEqual (Arg2, Zero))
@@ -12375,11 +12375,11 @@ If (Arg0)
                     {
                         While (One)
                         {
-                            Store (DerefOf (Index (Arg3, Zero)), _T_0) /* \_SB_.PCI0.RP01.PXSX._DSM._T_0 */
-                            If (LEqual (_T_0, Zero)) {}
+                            Store (DerefOf (Index (Arg3, Zero)), T_0) /* \_SB_.PCI0.RP01.PXSX._DSM.T_0 */
+                            If (LEqual (T_0, Zero)) {}
                             Else
                             {
-                                If (LEqual (_T_0, One))
+                                If (LEqual (T_0, One))
                                 {
                                     If (CondRefOf (\_SB.SLPB))
                                     {
@@ -12388,13 +12388,13 @@ If (Arg0)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x02)) {}
+                                    If (LEqual (T_0, 0x02)) {}
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x03)) {}
+                                        If (LEqual (T_0, 0x03)) {}
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x04))
+                                            If (LEqual (T_0, 0x04))
                                             {
                                                 If (CondRefOf (\_SB.SLPB))
                                                 {
@@ -12418,8 +12418,8 @@ If (Arg0)
                     {
                         While (One)
                         {
-                            Store (Arg2, _T_1) /* \_SB_.PCI0.RP01.PXSX._DSM._T_1 */
-                            If (LEqual (_T_1, Zero))
+                            Store (Arg2, T_1) /* \_SB_.PCI0.RP01.PXSX._DSM.T_1 */
+                            If (LEqual (T_1, Zero))
                             {
                                 If (LEqual (Arg1, Zero))
                                 {
@@ -12438,13 +12438,13 @@ If (Arg0)
                             }
                             Else
                             {
-                                If (LEqual (_T_1, One))
+                                If (LEqual (T_1, One))
                                 {
                                     Return (WHIT ())
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_1, 0x02))
+                                    If (LEqual (T_1, 0x02))
                                     {
                                         Return (SELF ())
                                     }
@@ -12503,59 +12503,59 @@ If (Arg0)
             })
             Method (SPLC, 0, Serialized)
             {
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 While (One)
                 {
-                    Store (VDID, _T_0) /* \_SB_.PCI0.RP01.PXSX.SPLC._T_0 */
-                    If (LEqual (_T_0, 0x093C8086))
+                    Store (VDID, T_0) /* \_SB_.PCI0.RP01.PXSX.SPLC.T_0 */
+                    If (LEqual (T_0, 0x093C8086))
                     {
                         Break
                     }
                     Else
                     {
-                        If (LEqual (_T_0, 0x095A8086))
+                        If (LEqual (T_0, 0x095A8086))
                         {
                             Break
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x095B8086))
+                            If (LEqual (T_0, 0x095B8086))
                             {
                                 Break
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x31658086))
+                                If (LEqual (T_0, 0x31658086))
                                 {
                                     Break
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x31668086))
+                                    If (LEqual (T_0, 0x31668086))
                                     {
                                         Break
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x08B18086))
+                                        If (LEqual (T_0, 0x08B18086))
                                         {
                                             Break
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x08B28086))
+                                            If (LEqual (T_0, 0x08B28086))
                                             {
                                                 Break
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0x08B38086))
+                                                If (LEqual (T_0, 0x08B38086))
                                                 {
                                                     Break
                                                 }
                                                 Else
                                                 {
-                                                    If (LEqual (_T_0, 0x08B48086))
+                                                    If (LEqual (T_0, 0x08B48086))
                                                     {
                                                         Break
                                                     }
@@ -12650,55 +12650,55 @@ If (Arg0)
 
             Method (WIST, 0, Serialized)
             {
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 If (CondRefOf (VDID))
                 {
                     While (One)
                     {
-                        Store (VDID, _T_0) /* \_SB_.PCI0.RP01.PXSX.WIST._T_0 */
-                        If (LEqual (_T_0, 0x095A8086))
+                        Store (VDID, T_0) /* \_SB_.PCI0.RP01.PXSX.WIST.T_0 */
+                        If (LEqual (T_0, 0x095A8086))
                         {
                             Return (One)
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x095B8086))
+                            If (LEqual (T_0, 0x095B8086))
                             {
                                 Return (One)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x31658086))
+                                If (LEqual (T_0, 0x31658086))
                                 {
                                     Return (One)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x31668086))
+                                    If (LEqual (T_0, 0x31668086))
                                     {
                                         Return (One)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x08B18086))
+                                        If (LEqual (T_0, 0x08B18086))
                                         {
                                             Return (One)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x08B28086))
+                                            If (LEqual (T_0, 0x08B28086))
                                             {
                                                 Return (One)
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0x08B38086))
+                                                If (LEqual (T_0, 0x08B38086))
                                                 {
                                                     Return (One)
                                                 }
                                                 Else
                                                 {
-                                                    If (LEqual (_T_0, 0x08B48086))
+                                                    If (LEqual (T_0, 0x08B48086))
                                                     {
                                                         Return (One)
                                                     }
@@ -12729,8 +12729,8 @@ If (Arg0)
     {
         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
         {
-            Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
             If (LEqual (Arg0, ToUUID ("1730e71d-e5dd-4a34-be57-4d76b6a2fe37")))
             {
                 If (LEqual (Arg2, Zero))
@@ -12755,11 +12755,11 @@ If (Arg0)
                 {
                     While (One)
                     {
-                        Store (DerefOf (Index (Arg3, Zero)), _T_0) /* \_SB_.PCI0.RP02.PXSX._DSM._T_0 */
-                        If (LEqual (_T_0, Zero)) {}
+                        Store (DerefOf (Index (Arg3, Zero)), T_0) /* \_SB_.PCI0.RP02.PXSX._DSM.T_0 */
+                        If (LEqual (T_0, Zero)) {}
                         Else
                         {
-                            If (LEqual (_T_0, One))
+                            If (LEqual (T_0, One))
                             {
                                 If (CondRefOf (\_SB.SLPB))
                                 {
@@ -12768,13 +12768,13 @@ If (Arg0)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x02)) {}
+                                If (LEqual (T_0, 0x02)) {}
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x03)) {}
+                                    If (LEqual (T_0, 0x03)) {}
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x04))
+                                        If (LEqual (T_0, 0x04))
                                         {
                                             If (CondRefOf (\_SB.SLPB))
                                             {
@@ -12798,8 +12798,8 @@ If (Arg0)
                 {
                     While (One)
                     {
-                        Store (Arg2, _T_1) /* \_SB_.PCI0.RP02.PXSX._DSM._T_1 */
-                        If (LEqual (_T_1, Zero))
+                        Store (Arg2, T_1) /* \_SB_.PCI0.RP02.PXSX._DSM.T_1 */
+                        If (LEqual (T_1, Zero))
                         {
                             If (LEqual (Arg1, Zero))
                             {
@@ -12818,13 +12818,13 @@ If (Arg0)
                         }
                         Else
                         {
-                            If (LEqual (_T_1, One))
+                            If (LEqual (T_1, One))
                             {
                                 Return (WHIT ())
                             }
                             Else
                             {
-                                If (LEqual (_T_1, 0x02))
+                                If (LEqual (T_1, 0x02))
                                 {
                                     Return (SELF ())
                                 }
@@ -12883,59 +12883,59 @@ If (Arg0)
         })
         Method (SPLC, 0, Serialized)
         {
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
             While (One)
             {
-                Store (VDID, _T_0) /* \_SB_.PCI0.RP02.PXSX.SPLC._T_0 */
-                If (LEqual (_T_0, 0x093C8086))
+                Store (VDID, T_0) /* \_SB_.PCI0.RP02.PXSX.SPLC.T_0 */
+                If (LEqual (T_0, 0x093C8086))
                 {
                     Break
                 }
                 Else
                 {
-                    If (LEqual (_T_0, 0x095A8086))
+                    If (LEqual (T_0, 0x095A8086))
                     {
                         Break
                     }
                     Else
                     {
-                        If (LEqual (_T_0, 0x095B8086))
+                        If (LEqual (T_0, 0x095B8086))
                         {
                             Break
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x31658086))
+                            If (LEqual (T_0, 0x31658086))
                             {
                                 Break
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x31668086))
+                                If (LEqual (T_0, 0x31668086))
                                 {
                                     Break
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x08B18086))
+                                    If (LEqual (T_0, 0x08B18086))
                                     {
                                         Break
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x08B28086))
+                                        If (LEqual (T_0, 0x08B28086))
                                         {
                                             Break
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x08B38086))
+                                            If (LEqual (T_0, 0x08B38086))
                                             {
                                                 Break
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0x08B48086))
+                                                If (LEqual (T_0, 0x08B48086))
                                                 {
                                                     Break
                                                 }
@@ -13030,55 +13030,55 @@ If (Arg0)
 
         Method (WIST, 0, Serialized)
         {
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
             If (CondRefOf (VDID))
             {
                 While (One)
                 {
-                    Store (VDID, _T_0) /* \_SB_.PCI0.RP02.PXSX.WIST._T_0 */
-                    If (LEqual (_T_0, 0x095A8086))
+                    Store (VDID, T_0) /* \_SB_.PCI0.RP02.PXSX.WIST.T_0 */
+                    If (LEqual (T_0, 0x095A8086))
                     {
                         Return (One)
                     }
                     Else
                     {
-                        If (LEqual (_T_0, 0x095B8086))
+                        If (LEqual (T_0, 0x095B8086))
                         {
                             Return (One)
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x31658086))
+                            If (LEqual (T_0, 0x31658086))
                             {
                                 Return (One)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x31668086))
+                                If (LEqual (T_0, 0x31668086))
                                 {
                                     Return (One)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x08B18086))
+                                    If (LEqual (T_0, 0x08B18086))
                                     {
                                         Return (One)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x08B28086))
+                                        If (LEqual (T_0, 0x08B28086))
                                         {
                                             Return (One)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x08B38086))
+                                            If (LEqual (T_0, 0x08B38086))
                                             {
                                                 Return (One)
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0x08B48086))
+                                                If (LEqual (T_0, 0x08B48086))
                                                 {
                                                     Return (One)
                                                 }
@@ -13109,59 +13109,59 @@ If (Arg0)
         
         Method (SPLC, 0, Serialized)
         {
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
             While (One)
             {
-                Store (VDID, _T_0) /* \_SB_.PCI0.RP03.PXSX.SPLC._T_0 */
-                If (LEqual (_T_0, 0x093C8086))
+                Store (VDID, T_0) /* \_SB_.PCI0.RP03.PXSX.SPLC.T_0 */
+                If (LEqual (T_0, 0x093C8086))
                 {
                     Break
                 }
                 Else
                 {
-                    If (LEqual (_T_0, 0x095A8086))
+                    If (LEqual (T_0, 0x095A8086))
                     {
                         Break
                     }
                     Else
                     {
-                        If (LEqual (_T_0, 0x095B8086))
+                        If (LEqual (T_0, 0x095B8086))
                         {
                             Break
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x31658086))
+                            If (LEqual (T_0, 0x31658086))
                             {
                                 Break
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x31668086))
+                                If (LEqual (T_0, 0x31668086))
                                 {
                                     Break
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x08B18086))
+                                    If (LEqual (T_0, 0x08B18086))
                                     {
                                         Break
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x08B28086))
+                                        If (LEqual (T_0, 0x08B28086))
                                         {
                                             Break
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x08B38086))
+                                            If (LEqual (T_0, 0x08B38086))
                                             {
                                                 Break
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0x08B48086))
+                                                If (LEqual (T_0, 0x08B48086))
                                                 {
                                                     Break
                                                 }
@@ -13245,55 +13245,55 @@ If (Arg0)
 
         Method (WIST, 0, Serialized)
         {
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
             If (CondRefOf (VDID))
             {
                 While (One)
                 {
-                    Store (VDID, _T_0) /* \_SB_.PCI0.RP03.PXSX.WIST._T_0 */
-                    If (LEqual (_T_0, 0x095A8086))
+                    Store (VDID, T_0) /* \_SB_.PCI0.RP03.PXSX.WIST.T_0 */
+                    If (LEqual (T_0, 0x095A8086))
                     {
                         Return (One)
                     }
                     Else
                     {
-                        If (LEqual (_T_0, 0x095B8086))
+                        If (LEqual (T_0, 0x095B8086))
                         {
                             Return (One)
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x31658086))
+                            If (LEqual (T_0, 0x31658086))
                             {
                                 Return (One)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x31668086))
+                                If (LEqual (T_0, 0x31668086))
                                 {
                                     Return (One)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x08B18086))
+                                    If (LEqual (T_0, 0x08B18086))
                                     {
                                         Return (One)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x08B28086))
+                                        If (LEqual (T_0, 0x08B28086))
                                         {
                                             Return (One)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x08B38086))
+                                            If (LEqual (T_0, 0x08B38086))
                                             {
                                                 Return (One)
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0x08B48086))
+                                                If (LEqual (T_0, 0x08B48086))
                                                 {
                                                     Return (One)
                                                 }
@@ -13323,8 +13323,8 @@ If (Arg0)
     {
         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
         {
-            Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
             If (LEqual (Arg0, ToUUID ("1730e71d-e5dd-4a34-be57-4d76b6a2fe37")))
             {
                 If (LEqual (Arg2, Zero))
@@ -13349,11 +13349,11 @@ If (Arg0)
                 {
                     While (One)
                     {
-                        Store (DerefOf (Index (Arg3, Zero)), _T_0) /* \_SB_.PCI0.RP04.PXSX._DSM._T_0 */
-                        If (LEqual (_T_0, Zero)) {}
+                        Store (DerefOf (Index (Arg3, Zero)), T_0) /* \_SB_.PCI0.RP04.PXSX._DSM.T_0 */
+                        If (LEqual (T_0, Zero)) {}
                         Else
                         {
-                            If (LEqual (_T_0, One))
+                            If (LEqual (T_0, One))
                             {
                                 If (CondRefOf (\_SB.SLPB))
                                 {
@@ -13362,13 +13362,13 @@ If (Arg0)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x02)) {}
+                                If (LEqual (T_0, 0x02)) {}
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x03)) {}
+                                    If (LEqual (T_0, 0x03)) {}
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x04))
+                                        If (LEqual (T_0, 0x04))
                                         {
                                             If (CondRefOf (\_SB.SLPB))
                                             {
@@ -13392,8 +13392,8 @@ If (Arg0)
                 {
                     While (One)
                     {
-                        Store (Arg2, _T_1) /* \_SB_.PCI0.RP04.PXSX._DSM._T_1 */
-                        If (LEqual (_T_1, Zero))
+                        Store (Arg2, T_1) /* \_SB_.PCI0.RP04.PXSX._DSM.T_1 */
+                        If (LEqual (T_1, Zero))
                         {
                             If (LEqual (Arg1, Zero))
                             {
@@ -13412,13 +13412,13 @@ If (Arg0)
                         }
                         Else
                         {
-                            If (LEqual (_T_1, One))
+                            If (LEqual (T_1, One))
                             {
                                 Return (WHIT ())
                             }
                             Else
                             {
-                                If (LEqual (_T_1, 0x02))
+                                If (LEqual (T_1, 0x02))
                                 {
                                     Return (SELF ())
                                 }
@@ -13477,59 +13477,59 @@ If (Arg0)
         })
         Method (SPLC, 0, Serialized)
         {
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
             While (One)
             {
-                Store (VDID, _T_0) /* \_SB_.PCI0.RP04.PXSX.SPLC._T_0 */
-                If (LEqual (_T_0, 0x093C8086))
+                Store (VDID, T_0) /* \_SB_.PCI0.RP04.PXSX.SPLC.T_0 */
+                If (LEqual (T_0, 0x093C8086))
                 {
                     Break
                 }
                 Else
                 {
-                    If (LEqual (_T_0, 0x095A8086))
+                    If (LEqual (T_0, 0x095A8086))
                     {
                         Break
                     }
                     Else
                     {
-                        If (LEqual (_T_0, 0x095B8086))
+                        If (LEqual (T_0, 0x095B8086))
                         {
                             Break
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x31658086))
+                            If (LEqual (T_0, 0x31658086))
                             {
                                 Break
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x31668086))
+                                If (LEqual (T_0, 0x31668086))
                                 {
                                     Break
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x08B18086))
+                                    If (LEqual (T_0, 0x08B18086))
                                     {
                                         Break
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x08B28086))
+                                        If (LEqual (T_0, 0x08B28086))
                                         {
                                             Break
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x08B38086))
+                                            If (LEqual (T_0, 0x08B38086))
                                             {
                                                 Break
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0x08B48086))
+                                                If (LEqual (T_0, 0x08B48086))
                                                 {
                                                     Break
                                                 }
@@ -13624,55 +13624,55 @@ If (Arg0)
 
         Method (WIST, 0, Serialized)
         {
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
             If (CondRefOf (VDID))
             {
                 While (One)
                 {
-                    Store (VDID, _T_0) /* \_SB_.PCI0.RP04.PXSX.WIST._T_0 */
-                    If (LEqual (_T_0, 0x095A8086))
+                    Store (VDID, T_0) /* \_SB_.PCI0.RP04.PXSX.WIST.T_0 */
+                    If (LEqual (T_0, 0x095A8086))
                     {
                         Return (One)
                     }
                     Else
                     {
-                        If (LEqual (_T_0, 0x095B8086))
+                        If (LEqual (T_0, 0x095B8086))
                         {
                             Return (One)
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x31658086))
+                            If (LEqual (T_0, 0x31658086))
                             {
                                 Return (One)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x31668086))
+                                If (LEqual (T_0, 0x31668086))
                                 {
                                     Return (One)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x08B18086))
+                                    If (LEqual (T_0, 0x08B18086))
                                     {
                                         Return (One)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x08B28086))
+                                        If (LEqual (T_0, 0x08B28086))
                                         {
                                             Return (One)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x08B38086))
+                                            If (LEqual (T_0, 0x08B38086))
                                             {
                                                 Return (One)
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0x08B48086))
+                                                If (LEqual (T_0, 0x08B48086))
                                                 {
                                                     Return (One)
                                                 }
@@ -13704,8 +13704,8 @@ If (Arg0)
         {
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
-                Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 If (LEqual (Arg0, ToUUID ("1730e71d-e5dd-4a34-be57-4d76b6a2fe37")))
                 {
                     If (LEqual (Arg2, Zero))
@@ -13730,11 +13730,11 @@ If (Arg0)
                     {
                         While (One)
                         {
-                            Store (DerefOf (Index (Arg3, Zero)), _T_0) /* \_SB_.PCI0.RP05.PXSX._DSM._T_0 */
-                            If (LEqual (_T_0, Zero)) {}
+                            Store (DerefOf (Index (Arg3, Zero)), T_0) /* \_SB_.PCI0.RP05.PXSX._DSM.T_0 */
+                            If (LEqual (T_0, Zero)) {}
                             Else
                             {
-                                If (LEqual (_T_0, One))
+                                If (LEqual (T_0, One))
                                 {
                                     If (CondRefOf (\_SB.SLPB))
                                     {
@@ -13743,13 +13743,13 @@ If (Arg0)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x02)) {}
+                                    If (LEqual (T_0, 0x02)) {}
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x03)) {}
+                                        If (LEqual (T_0, 0x03)) {}
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x04))
+                                            If (LEqual (T_0, 0x04))
                                             {
                                                 If (CondRefOf (\_SB.SLPB))
                                                 {
@@ -13773,8 +13773,8 @@ If (Arg0)
                     {
                         While (One)
                         {
-                            Store (Arg2, _T_1) /* \_SB_.PCI0.RP05.PXSX._DSM._T_1 */
-                            If (LEqual (_T_1, Zero))
+                            Store (Arg2, T_1) /* \_SB_.PCI0.RP05.PXSX._DSM.T_1 */
+                            If (LEqual (T_1, Zero))
                             {
                                 If (LEqual (Arg1, Zero))
                                 {
@@ -13793,13 +13793,13 @@ If (Arg0)
                             }
                             Else
                             {
-                                If (LEqual (_T_1, One))
+                                If (LEqual (T_1, One))
                                 {
                                     Return (WHIT ())
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_1, 0x02))
+                                    If (LEqual (T_1, 0x02))
                                     {
                                         Return (SELF ())
                                     }
@@ -13858,59 +13858,59 @@ If (Arg0)
             })
             Method (SPLC, 0, Serialized)
             {
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 While (One)
                 {
-                    Store (VDID, _T_0) /* \_SB_.PCI0.RP05.PXSX.SPLC._T_0 */
-                    If (LEqual (_T_0, 0x093C8086))
+                    Store (VDID, T_0) /* \_SB_.PCI0.RP05.PXSX.SPLC.T_0 */
+                    If (LEqual (T_0, 0x093C8086))
                     {
                         Break
                     }
                     Else
                     {
-                        If (LEqual (_T_0, 0x095A8086))
+                        If (LEqual (T_0, 0x095A8086))
                         {
                             Break
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x095B8086))
+                            If (LEqual (T_0, 0x095B8086))
                             {
                                 Break
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x31658086))
+                                If (LEqual (T_0, 0x31658086))
                                 {
                                     Break
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x31668086))
+                                    If (LEqual (T_0, 0x31668086))
                                     {
                                         Break
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x08B18086))
+                                        If (LEqual (T_0, 0x08B18086))
                                         {
                                             Break
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x08B28086))
+                                            If (LEqual (T_0, 0x08B28086))
                                             {
                                                 Break
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0x08B38086))
+                                                If (LEqual (T_0, 0x08B38086))
                                                 {
                                                     Break
                                                 }
                                                 Else
                                                 {
-                                                    If (LEqual (_T_0, 0x08B48086))
+                                                    If (LEqual (T_0, 0x08B48086))
                                                     {
                                                         Break
                                                     }
@@ -14005,55 +14005,55 @@ If (Arg0)
 
             Method (WIST, 0, Serialized)
             {
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 If (CondRefOf (VDID))
                 {
                     While (One)
                     {
-                        Store (VDID, _T_0) /* \_SB_.PCI0.RP05.PXSX.WIST._T_0 */
-                        If (LEqual (_T_0, 0x095A8086))
+                        Store (VDID, T_0) /* \_SB_.PCI0.RP05.PXSX.WIST.T_0 */
+                        If (LEqual (T_0, 0x095A8086))
                         {
                             Return (One)
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x095B8086))
+                            If (LEqual (T_0, 0x095B8086))
                             {
                                 Return (One)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x31658086))
+                                If (LEqual (T_0, 0x31658086))
                                 {
                                     Return (One)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x31668086))
+                                    If (LEqual (T_0, 0x31668086))
                                     {
                                         Return (One)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x08B18086))
+                                        If (LEqual (T_0, 0x08B18086))
                                         {
                                             Return (One)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x08B28086))
+                                            If (LEqual (T_0, 0x08B28086))
                                             {
                                                 Return (One)
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0x08B38086))
+                                                If (LEqual (T_0, 0x08B38086))
                                                 {
                                                     Return (One)
                                                 }
                                                 Else
                                                 {
-                                                    If (LEqual (_T_0, 0x08B48086))
+                                                    If (LEqual (T_0, 0x08B48086))
                                                     {
                                                         Return (One)
                                                     }
@@ -14084,8 +14084,8 @@ If (Arg0)
     {
         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
         {
-            Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
             If (LEqual (Arg0, ToUUID ("1730e71d-e5dd-4a34-be57-4d76b6a2fe37")))
             {
                 If (LEqual (Arg2, Zero))
@@ -14110,11 +14110,11 @@ If (Arg0)
                 {
                     While (One)
                     {
-                        Store (DerefOf (Index (Arg3, Zero)), _T_0) /* \_SB_.PCI0.RP06.PXSX._DSM._T_0 */
-                        If (LEqual (_T_0, Zero)) {}
+                        Store (DerefOf (Index (Arg3, Zero)), T_0) /* \_SB_.PCI0.RP06.PXSX._DSM.T_0 */
+                        If (LEqual (T_0, Zero)) {}
                         Else
                         {
-                            If (LEqual (_T_0, One))
+                            If (LEqual (T_0, One))
                             {
                                 If (CondRefOf (\_SB.SLPB))
                                 {
@@ -14123,13 +14123,13 @@ If (Arg0)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x02)) {}
+                                If (LEqual (T_0, 0x02)) {}
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x03)) {}
+                                    If (LEqual (T_0, 0x03)) {}
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x04))
+                                        If (LEqual (T_0, 0x04))
                                         {
                                             If (CondRefOf (\_SB.SLPB))
                                             {
@@ -14153,8 +14153,8 @@ If (Arg0)
                 {
                     While (One)
                     {
-                        Store (Arg2, _T_1) /* \_SB_.PCI0.RP06.PXSX._DSM._T_1 */
-                        If (LEqual (_T_1, Zero))
+                        Store (Arg2, T_1) /* \_SB_.PCI0.RP06.PXSX._DSM.T_1 */
+                        If (LEqual (T_1, Zero))
                         {
                             If (LEqual (Arg1, Zero))
                             {
@@ -14173,13 +14173,13 @@ If (Arg0)
                         }
                         Else
                         {
-                            If (LEqual (_T_1, One))
+                            If (LEqual (T_1, One))
                             {
                                 Return (WHIT ())
                             }
                             Else
                             {
-                                If (LEqual (_T_1, 0x02))
+                                If (LEqual (T_1, 0x02))
                                 {
                                     Return (SELF ())
                                 }
@@ -14238,59 +14238,59 @@ If (Arg0)
         })
         Method (SPLC, 0, Serialized)
         {
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
             While (One)
             {
-                Store (VDID, _T_0) /* \_SB_.PCI0.RP06.PXSX.SPLC._T_0 */
-                If (LEqual (_T_0, 0x093C8086))
+                Store (VDID, T_0) /* \_SB_.PCI0.RP06.PXSX.SPLC.T_0 */
+                If (LEqual (T_0, 0x093C8086))
                 {
                     Break
                 }
                 Else
                 {
-                    If (LEqual (_T_0, 0x095A8086))
+                    If (LEqual (T_0, 0x095A8086))
                     {
                         Break
                     }
                     Else
                     {
-                        If (LEqual (_T_0, 0x095B8086))
+                        If (LEqual (T_0, 0x095B8086))
                         {
                             Break
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x31658086))
+                            If (LEqual (T_0, 0x31658086))
                             {
                                 Break
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x31668086))
+                                If (LEqual (T_0, 0x31668086))
                                 {
                                     Break
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x08B18086))
+                                    If (LEqual (T_0, 0x08B18086))
                                     {
                                         Break
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x08B28086))
+                                        If (LEqual (T_0, 0x08B28086))
                                         {
                                             Break
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x08B38086))
+                                            If (LEqual (T_0, 0x08B38086))
                                             {
                                                 Break
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0x08B48086))
+                                                If (LEqual (T_0, 0x08B48086))
                                                 {
                                                     Break
                                                 }
@@ -14385,55 +14385,55 @@ If (Arg0)
 
         Method (WIST, 0, Serialized)
         {
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
             If (CondRefOf (VDID))
             {
                 While (One)
                 {
-                    Store (VDID, _T_0) /* \_SB_.PCI0.RP06.PXSX.WIST._T_0 */
-                    If (LEqual (_T_0, 0x095A8086))
+                    Store (VDID, T_0) /* \_SB_.PCI0.RP06.PXSX.WIST.T_0 */
+                    If (LEqual (T_0, 0x095A8086))
                     {
                         Return (One)
                     }
                     Else
                     {
-                        If (LEqual (_T_0, 0x095B8086))
+                        If (LEqual (T_0, 0x095B8086))
                         {
                             Return (One)
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x31658086))
+                            If (LEqual (T_0, 0x31658086))
                             {
                                 Return (One)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x31668086))
+                                If (LEqual (T_0, 0x31668086))
                                 {
                                     Return (One)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x08B18086))
+                                    If (LEqual (T_0, 0x08B18086))
                                     {
                                         Return (One)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x08B28086))
+                                        If (LEqual (T_0, 0x08B28086))
                                         {
                                             Return (One)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x08B38086))
+                                            If (LEqual (T_0, 0x08B38086))
                                             {
                                                 Return (One)
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0x08B48086))
+                                                If (LEqual (T_0, 0x08B48086))
                                                 {
                                                     Return (One)
                                                 }
@@ -14463,8 +14463,8 @@ If (Arg0)
     {
         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
         {
-            Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
             If (LEqual (Arg0, ToUUID ("1730e71d-e5dd-4a34-be57-4d76b6a2fe37")))
             {
                 If (LEqual (Arg2, Zero))
@@ -14489,11 +14489,11 @@ If (Arg0)
                 {
                     While (One)
                     {
-                        Store (DerefOf (Index (Arg3, Zero)), _T_0) /* \_SB_.PCI0.RP07.PXSX._DSM._T_0 */
-                        If (LEqual (_T_0, Zero)) {}
+                        Store (DerefOf (Index (Arg3, Zero)), T_0) /* \_SB_.PCI0.RP07.PXSX._DSM.T_0 */
+                        If (LEqual (T_0, Zero)) {}
                         Else
                         {
-                            If (LEqual (_T_0, One))
+                            If (LEqual (T_0, One))
                             {
                                 If (CondRefOf (\_SB.SLPB))
                                 {
@@ -14502,13 +14502,13 @@ If (Arg0)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x02)) {}
+                                If (LEqual (T_0, 0x02)) {}
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x03)) {}
+                                    If (LEqual (T_0, 0x03)) {}
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x04))
+                                        If (LEqual (T_0, 0x04))
                                         {
                                             If (CondRefOf (\_SB.SLPB))
                                             {
@@ -14532,8 +14532,8 @@ If (Arg0)
                 {
                     While (One)
                     {
-                        Store (Arg2, _T_1) /* \_SB_.PCI0.RP07.PXSX._DSM._T_1 */
-                        If (LEqual (_T_1, Zero))
+                        Store (Arg2, T_1) /* \_SB_.PCI0.RP07.PXSX._DSM.T_1 */
+                        If (LEqual (T_1, Zero))
                         {
                             If (LEqual (Arg1, Zero))
                             {
@@ -14552,13 +14552,13 @@ If (Arg0)
                         }
                         Else
                         {
-                            If (LEqual (_T_1, One))
+                            If (LEqual (T_1, One))
                             {
                                 Return (WHIT ())
                             }
                             Else
                             {
-                                If (LEqual (_T_1, 0x02))
+                                If (LEqual (T_1, 0x02))
                                 {
                                     Return (SELF ())
                                 }
@@ -14617,59 +14617,59 @@ If (Arg0)
         })
         Method (SPLC, 0, Serialized)
         {
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
             While (One)
             {
-                Store (VDID, _T_0) /* \_SB_.PCI0.RP07.PXSX.SPLC._T_0 */
-                If (LEqual (_T_0, 0x093C8086))
+                Store (VDID, T_0) /* \_SB_.PCI0.RP07.PXSX.SPLC.T_0 */
+                If (LEqual (T_0, 0x093C8086))
                 {
                     Break
                 }
                 Else
                 {
-                    If (LEqual (_T_0, 0x095A8086))
+                    If (LEqual (T_0, 0x095A8086))
                     {
                         Break
                     }
                     Else
                     {
-                        If (LEqual (_T_0, 0x095B8086))
+                        If (LEqual (T_0, 0x095B8086))
                         {
                             Break
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x31658086))
+                            If (LEqual (T_0, 0x31658086))
                             {
                                 Break
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x31668086))
+                                If (LEqual (T_0, 0x31668086))
                                 {
                                     Break
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x08B18086))
+                                    If (LEqual (T_0, 0x08B18086))
                                     {
                                         Break
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x08B28086))
+                                        If (LEqual (T_0, 0x08B28086))
                                         {
                                             Break
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x08B38086))
+                                            If (LEqual (T_0, 0x08B38086))
                                             {
                                                 Break
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0x08B48086))
+                                                If (LEqual (T_0, 0x08B48086))
                                                 {
                                                     Break
                                                 }
@@ -14764,55 +14764,55 @@ If (Arg0)
 
         Method (WIST, 0, Serialized)
         {
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
             If (CondRefOf (VDID))
             {
                 While (One)
                 {
-                    Store (VDID, _T_0) /* \_SB_.PCI0.RP07.PXSX.WIST._T_0 */
-                    If (LEqual (_T_0, 0x095A8086))
+                    Store (VDID, T_0) /* \_SB_.PCI0.RP07.PXSX.WIST.T_0 */
+                    If (LEqual (T_0, 0x095A8086))
                     {
                         Return (One)
                     }
                     Else
                     {
-                        If (LEqual (_T_0, 0x095B8086))
+                        If (LEqual (T_0, 0x095B8086))
                         {
                             Return (One)
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x31658086))
+                            If (LEqual (T_0, 0x31658086))
                             {
                                 Return (One)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x31668086))
+                                If (LEqual (T_0, 0x31668086))
                                 {
                                     Return (One)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x08B18086))
+                                    If (LEqual (T_0, 0x08B18086))
                                     {
                                         Return (One)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x08B28086))
+                                        If (LEqual (T_0, 0x08B28086))
                                         {
                                             Return (One)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x08B38086))
+                                            If (LEqual (T_0, 0x08B38086))
                                             {
                                                 Return (One)
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0x08B48086))
+                                                If (LEqual (T_0, 0x08B48086))
                                                 {
                                                     Return (One)
                                                 }
@@ -14842,8 +14842,8 @@ If (Arg0)
     {
         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
         {
-            Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
             If (LEqual (Arg0, ToUUID ("1730e71d-e5dd-4a34-be57-4d76b6a2fe37")))
             {
                 If (LEqual (Arg2, Zero))
@@ -14868,11 +14868,11 @@ If (Arg0)
                 {
                     While (One)
                     {
-                        Store (DerefOf (Index (Arg3, Zero)), _T_0) /* \_SB_.PCI0.RP08.PXSX._DSM._T_0 */
-                        If (LEqual (_T_0, Zero)) {}
+                        Store (DerefOf (Index (Arg3, Zero)), T_0) /* \_SB_.PCI0.RP08.PXSX._DSM.T_0 */
+                        If (LEqual (T_0, Zero)) {}
                         Else
                         {
-                            If (LEqual (_T_0, One))
+                            If (LEqual (T_0, One))
                             {
                                 If (CondRefOf (\_SB.SLPB))
                                 {
@@ -14881,13 +14881,13 @@ If (Arg0)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x02)) {}
+                                If (LEqual (T_0, 0x02)) {}
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x03)) {}
+                                    If (LEqual (T_0, 0x03)) {}
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x04))
+                                        If (LEqual (T_0, 0x04))
                                         {
                                             If (CondRefOf (\_SB.SLPB))
                                             {
@@ -14911,8 +14911,8 @@ If (Arg0)
                 {
                     While (One)
                     {
-                        Store (Arg2, _T_1) /* \_SB_.PCI0.RP08.PXSX._DSM._T_1 */
-                        If (LEqual (_T_1, Zero))
+                        Store (Arg2, T_1) /* \_SB_.PCI0.RP08.PXSX._DSM.T_1 */
+                        If (LEqual (T_1, Zero))
                         {
                             If (LEqual (Arg1, Zero))
                             {
@@ -14931,13 +14931,13 @@ If (Arg0)
                         }
                         Else
                         {
-                            If (LEqual (_T_1, One))
+                            If (LEqual (T_1, One))
                             {
                                 Return (WHIT ())
                             }
                             Else
                             {
-                                If (LEqual (_T_1, 0x02))
+                                If (LEqual (T_1, 0x02))
                                 {
                                     Return (SELF ())
                                 }
@@ -14996,59 +14996,59 @@ If (Arg0)
         })
         Method (SPLC, 0, Serialized)
         {
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
             While (One)
             {
-                Store (VDID, _T_0) /* \_SB_.PCI0.RP08.PXSX.SPLC._T_0 */
-                If (LEqual (_T_0, 0x093C8086))
+                Store (VDID, T_0) /* \_SB_.PCI0.RP08.PXSX.SPLC.T_0 */
+                If (LEqual (T_0, 0x093C8086))
                 {
                     Break
                 }
                 Else
                 {
-                    If (LEqual (_T_0, 0x095A8086))
+                    If (LEqual (T_0, 0x095A8086))
                     {
                         Break
                     }
                     Else
                     {
-                        If (LEqual (_T_0, 0x095B8086))
+                        If (LEqual (T_0, 0x095B8086))
                         {
                             Break
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x31658086))
+                            If (LEqual (T_0, 0x31658086))
                             {
                                 Break
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x31668086))
+                                If (LEqual (T_0, 0x31668086))
                                 {
                                     Break
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x08B18086))
+                                    If (LEqual (T_0, 0x08B18086))
                                     {
                                         Break
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x08B28086))
+                                        If (LEqual (T_0, 0x08B28086))
                                         {
                                             Break
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x08B38086))
+                                            If (LEqual (T_0, 0x08B38086))
                                             {
                                                 Break
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0x08B48086))
+                                                If (LEqual (T_0, 0x08B48086))
                                                 {
                                                     Break
                                                 }
@@ -15143,55 +15143,55 @@ If (Arg0)
 
         Method (WIST, 0, Serialized)
         {
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
             If (CondRefOf (VDID))
             {
                 While (One)
                 {
-                    Store (VDID, _T_0) /* \_SB_.PCI0.RP08.PXSX.WIST._T_0 */
-                    If (LEqual (_T_0, 0x095A8086))
+                    Store (VDID, T_0) /* \_SB_.PCI0.RP08.PXSX.WIST.T_0 */
+                    If (LEqual (T_0, 0x095A8086))
                     {
                         Return (One)
                     }
                     Else
                     {
-                        If (LEqual (_T_0, 0x095B8086))
+                        If (LEqual (T_0, 0x095B8086))
                         {
                             Return (One)
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x31658086))
+                            If (LEqual (T_0, 0x31658086))
                             {
                                 Return (One)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x31668086))
+                                If (LEqual (T_0, 0x31668086))
                                 {
                                     Return (One)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x08B18086))
+                                    If (LEqual (T_0, 0x08B18086))
                                     {
                                         Return (One)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x08B28086))
+                                        If (LEqual (T_0, 0x08B28086))
                                         {
                                             Return (One)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x08B38086))
+                                            If (LEqual (T_0, 0x08B38086))
                                             {
                                                 Return (One)
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0x08B48086))
+                                                If (LEqual (T_0, 0x08B48086))
                                                 {
                                                     Return (One)
                                                 }
@@ -17058,7 +17058,7 @@ If (Arg0)
 
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 If (LEqual (Arg0, ToUUID ("b8febfe0-baf8-454b-aecd-49fb91137b21")))
                 {
                     If (LEqual (Arg2, Zero))
@@ -17081,8 +17081,8 @@ If (Arg0)
                         {
                             While (One)
                             {
-                                Store (PEPY, _T_0) /* \_SB_.PEPD._DSM._T_0 */
-                                If (LEqual (_T_0, One))
+                                Store (PEPY, T_0) /* \_SB_.PEPD._DSM.T_0 */
+                                If (LEqual (T_0, One))
                                 {
                                     Return (Package (0x02)
                                     {
@@ -17095,7 +17095,7 @@ If (Arg0)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x02))
+                                    If (LEqual (T_0, 0x02))
                                     {
                                         Return (Package (0x02)
                                         {
@@ -17108,7 +17108,7 @@ If (Arg0)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x03))
+                                        If (LEqual (T_0, 0x03))
                                         {
                                             Return (DEVS) /* \_SB_.PEPD.DEVS */
                                         }
@@ -17466,7 +17466,7 @@ If (Arg0)
                 Name (IPWR, Zero)
                 Method (_STA, 0, Serialized)  // _STA: Status
                 {
-                    Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                     If (LEqual (IVDF, Zero))
                     {
                         Return (Zero)
@@ -17474,8 +17474,8 @@ If (Arg0)
 
                     While (One)
                     {
-                        Store (BID, _T_0) /* \_SB_.ICAM._STA._T_0 */
-                        If (LEqual (_T_0, 0x31))
+                        Store (BID, T_0) /* \_SB_.ICAM._STA.T_0 */
+                        If (LEqual (T_0, 0x31))
                         {
                             If (LEqual (SKID, One))
                             {
@@ -17484,7 +17484,7 @@ If (Arg0)
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x80))
+                            If (LEqual (T_0, 0x80))
                             {
                                 If (^^PCI0.XHC.PRTE (0x04))
                                 {
@@ -17493,7 +17493,7 @@ If (Arg0)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x4A))
+                                If (LEqual (T_0, 0x4A))
                                 {
                                     If (^^PCI0.XHC.PRTE (0x02))
                                     {
@@ -17515,13 +17515,13 @@ If (Arg0)
 
                 Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
-                    Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                     If (LEqual (Arg0, ToUUID ("f5cf0ff7-5d60-4842-82c0-fa1a61d873f2")))
                     {
                         While (One)
                         {
-                            Store (ToInteger (Arg2), _T_0) /* \_SB_.ICAM._DSM._T_0 */
-                            If (LEqual (_T_0, Zero))
+                            Store (ToInteger (Arg2), T_0) /* \_SB_.ICAM._DSM.T_0 */
+                            If (LEqual (T_0, Zero))
                             {
                                 If (LEqual (ToInteger (Arg1), Zero))
                                 {
@@ -17538,7 +17538,7 @@ If (Arg0)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, One))
+                                If (LEqual (T_0, One))
                                 {
                                     If (LEqual (DerefOf (Index (Arg3, Zero)), Zero))
                                     {
@@ -17571,7 +17571,7 @@ If (Arg0)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x02))
+                                    If (LEqual (T_0, 0x02))
                                     {
                                         If (LOr (LEqual (BID, 0x31), LEqual (BID, 0x80)))
                                         {
@@ -17684,7 +17684,7 @@ If (Arg0)
 
             Method (PECI, 7, Serialized)
             {
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 While (LEqual (And (PBSY, 0x02), 0x02))
                 {
                     If (LGreater (Arg6, 0x1000))
@@ -17707,85 +17707,85 @@ If (Arg0)
                 {
                     While (One)
                     {
-                        Store (ToInteger (HCMD), _T_0) /* \_SB_.PCI0.LPCB.EC0_.PECI._T_0 */
-                        If (LEqual (_T_0, 0xF7))
+                        Store (ToInteger (HCMD), T_0) /* \_SB_.PCI0.LPCB.EC0_.PECI.T_0 */
+                        If (LEqual (T_0, 0xF7))
                         {
                             Store (Zero, TEMP) /* \_SB_.PCI0.LPCB.EC0_.PECI.TEMP */
                             Break
                         }
                         Else
                         {
-                            If (LEqual (_T_0, One))
+                            If (LEqual (T_0, One))
                             {
                                 Store (Zero, TEMP) /* \_SB_.PCI0.LPCB.EC0_.PECI.TEMP */
                                 Break
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x02))
+                                If (LEqual (T_0, 0x02))
                                 {
                                     Store (Zero, TEMP) /* \_SB_.PCI0.LPCB.EC0_.PECI.TEMP */
                                     Break
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0xA1))
+                                    If (LEqual (T_0, 0xA1))
                                     {
                                         Store (Subtract (Arg1, One), TEMP) /* \_SB_.PCI0.LPCB.EC0_.PECI.TEMP */
                                         Break
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0xA2))
+                                        If (LEqual (T_0, 0xA2))
                                         {
                                             Store (Subtract (Arg1, One), TEMP) /* \_SB_.PCI0.LPCB.EC0_.PECI.TEMP */
                                             Break
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0xB1))
+                                            If (LEqual (T_0, 0xB1))
                                             {
                                                 Store (Subtract (Arg1, One), TEMP) /* \_SB_.PCI0.LPCB.EC0_.PECI.TEMP */
                                                 Break
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0xB2))
+                                                If (LEqual (T_0, 0xB2))
                                                 {
                                                     Store (Subtract (Arg1, One), TEMP) /* \_SB_.PCI0.LPCB.EC0_.PECI.TEMP */
                                                     Break
                                                 }
                                                 Else
                                                 {
-                                                    If (LEqual (_T_0, 0x61))
+                                                    If (LEqual (T_0, 0x61))
                                                     {
                                                         Store (Subtract (Arg1, One), TEMP) /* \_SB_.PCI0.LPCB.EC0_.PECI.TEMP */
                                                         Break
                                                     }
                                                     Else
                                                     {
-                                                        If (LEqual (_T_0, 0x62))
+                                                        If (LEqual (T_0, 0x62))
                                                         {
                                                             Store (Subtract (Arg1, One), TEMP) /* \_SB_.PCI0.LPCB.EC0_.PECI.TEMP */
                                                             Break
                                                         }
                                                         Else
                                                         {
-                                                            If (LEqual (_T_0, 0xE1))
+                                                            If (LEqual (T_0, 0xE1))
                                                             {
                                                                 Store (Subtract (Arg1, One), TEMP) /* \_SB_.PCI0.LPCB.EC0_.PECI.TEMP */
                                                                 Break
                                                             }
                                                             Else
                                                             {
-                                                                If (LEqual (_T_0, 0xE2))
+                                                                If (LEqual (T_0, 0xE2))
                                                                 {
                                                                     Store (Subtract (Arg1, One), TEMP) /* \_SB_.PCI0.LPCB.EC0_.PECI.TEMP */
                                                                     Break
                                                                 }
                                                                 Else
                                                                 {
-                                                                    If (LEqual (_T_0, 0xA5))
+                                                                    If (LEqual (T_0, 0xA5))
                                                                     {
                                                                         Or (HCTL, 0x40, HCTL) /* \_SB_.PCI0.LPCB.EC0_.HCTL */
                                                                         Store (Subtract (Arg1, 0x02), TEMP) /* \_SB_.PCI0.LPCB.EC0_.PECI.TEMP */
@@ -17793,7 +17793,7 @@ If (Arg0)
                                                                     }
                                                                     Else
                                                                     {
-                                                                        If (LEqual (_T_0, 0xA6))
+                                                                        If (LEqual (T_0, 0xA6))
                                                                         {
                                                                             Or (HCTL, 0x40, HCTL) /* \_SB_.PCI0.LPCB.EC0_.HCTL */
                                                                             Store (Subtract (Arg1, 0x02), TEMP) /* \_SB_.PCI0.LPCB.EC0_.PECI.TEMP */
@@ -17801,7 +17801,7 @@ If (Arg0)
                                                                         }
                                                                         Else
                                                                         {
-                                                                            If (LEqual (_T_0, 0xB5))
+                                                                            If (LEqual (T_0, 0xB5))
                                                                             {
                                                                                 Or (HCTL, 0x40, HCTL) /* \_SB_.PCI0.LPCB.EC0_.HCTL */
                                                                                 Store (Subtract (Arg1, 0x02), TEMP) /* \_SB_.PCI0.LPCB.EC0_.PECI.TEMP */
@@ -17809,7 +17809,7 @@ If (Arg0)
                                                                             }
                                                                             Else
                                                                             {
-                                                                                If (LEqual (_T_0, 0xB6))
+                                                                                If (LEqual (T_0, 0xB6))
                                                                                 {
                                                                                     Or (HCTL, 0x40, HCTL) /* \_SB_.PCI0.LPCB.EC0_.HCTL */
                                                                                     Store (Subtract (Arg1, 0x02), TEMP) /* \_SB_.PCI0.LPCB.EC0_.PECI.TEMP */
@@ -17817,7 +17817,7 @@ If (Arg0)
                                                                                 }
                                                                                 Else
                                                                                 {
-                                                                                    If (LEqual (_T_0, 0x65))
+                                                                                    If (LEqual (T_0, 0x65))
                                                                                     {
                                                                                         Or (HCTL, 0x40, HCTL) /* \_SB_.PCI0.LPCB.EC0_.HCTL */
                                                                                         Store (Subtract (Arg1, 0x02), TEMP) /* \_SB_.PCI0.LPCB.EC0_.PECI.TEMP */
@@ -17825,7 +17825,7 @@ If (Arg0)
                                                                                     }
                                                                                     Else
                                                                                     {
-                                                                                        If (LEqual (_T_0, 0x66))
+                                                                                        If (LEqual (T_0, 0x66))
                                                                                         {
                                                                                             Or (HCTL, 0x40, HCTL) /* \_SB_.PCI0.LPCB.EC0_.HCTL */
                                                                                             Store (Subtract (Arg1, 0x02), TEMP) /* \_SB_.PCI0.LPCB.EC0_.PECI.TEMP */
@@ -17833,7 +17833,7 @@ If (Arg0)
                                                                                         }
                                                                                         Else
                                                                                         {
-                                                                                            If (LEqual (_T_0, 0xE5))
+                                                                                            If (LEqual (T_0, 0xE5))
                                                                                             {
                                                                                                 Or (HCTL, 0x40, HCTL) /* \_SB_.PCI0.LPCB.EC0_.HCTL */
                                                                                                 Store (Subtract (Arg1, 0x02), TEMP) /* \_SB_.PCI0.LPCB.EC0_.PECI.TEMP */
@@ -17841,7 +17841,7 @@ If (Arg0)
                                                                                             }
                                                                                             Else
                                                                                             {
-                                                                                                If (LEqual (_T_0, 0xE6))
+                                                                                                If (LEqual (T_0, 0xE6))
                                                                                                 {
                                                                                                     Or (HCTL, 0x40, HCTL) /* \_SB_.PCI0.LPCB.EC0_.HCTL */
                                                                                                     Store (Subtract (Arg1, 0x02), TEMP) /* \_SB_.PCI0.LPCB.EC0_.PECI.TEMP */
@@ -19784,7 +19784,7 @@ DT2D,8
 
             Method (PSTC, 1, Serialized)
             {
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 If (LEqual (Arg0, Zero))
                 {
                     Store (CPUP, Local0)
@@ -19810,8 +19810,8 @@ DT2D,8
                 {
                     While (One)
                     {
-                        Store (TCNT, _T_0) /* \_SB_.ATKD.PSTC._T_0 */
-                        If (LEqual (_T_0, 0x08))
+                        Store (TCNT, T_0) /* \_SB_.ATKD.PSTC.T_0 */
+                        If (LEqual (T_0, 0x08))
                         {
                             Notify (\_PR.CPU0, 0x80) // Performance Capability Change
                             Notify (\_PR.CPU1, 0x80) // Performance Capability Change
@@ -19824,7 +19824,7 @@ DT2D,8
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x04))
+                            If (LEqual (T_0, 0x04))
                             {
                                 Notify (\_PR.CPU0, 0x80) // Performance Capability Change
                                 Notify (\_PR.CPU1, 0x80) // Performance Capability Change
@@ -19833,7 +19833,7 @@ DT2D,8
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x02))
+                                If (LEqual (T_0, 0x02))
                                 {
                                     Notify (\_PR.CPU0, 0x80) // Performance Capability Change
                                     Notify (\_PR.CPU1, 0x80) // Performance Capability Change
@@ -25399,20 +25399,20 @@ DT2D,8
 
         Method (TACH, 1, Serialized)
         {
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
             If (ECAV ())
             {
                 While (One)
                 {
-                    Store (Arg0, _T_0) /* \_SB_.PCI0.LPCB.EC0_.TACH._T_0 */
-                    If (LEqual (_T_0, Zero))
+                    Store (Arg0, T_0) /* \_SB_.PCI0.LPCB.EC0_.TACH.T_0 */
+                    If (LEqual (T_0, Zero))
                     {
                         Store (B1B2(TAHA,TAHB), Local0)
                         Break
                     }
                     Else
                     {
-                        If (LEqual (_T_0, One))
+                        If (LEqual (T_0, One))
                         {
                             Store (B1B2(TAHC,TAHD), Local0)
                             Break
@@ -28373,7 +28373,7 @@ DT2D,8
 
         Method (STRT, 3, Serialized)
         {
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
             OperationRegion (TPMR, SystemMemory, CRBI, 0x1000)
             Field (TPMR, AnyAcc, NoLock, Preserve)
             {
@@ -28385,8 +28385,8 @@ DT2D,8
 
             While (One)
             {
-                Store (ToInteger (Arg1), _T_0) /* \_SB_.TPM_.STRT._T_0 */
-                If (LEqual (_T_0, Zero))
+                Store (ToInteger (Arg1), T_0) /* \_SB_.TPM_.STRT.T_0 */
+                If (LEqual (T_0, Zero))
                 {
                     Return (Buffer (One)
                     {
@@ -28395,7 +28395,7 @@ DT2D,8
                 }
                 Else
                 {
-                    If (LEqual (_T_0, One))
+                    If (LEqual (T_0, One))
                     {
                         If (LEqual (Or (And (HSTS, 0x02), And (HSTS, One)), 
                             0x03))
@@ -28420,11 +28420,11 @@ DT2D,8
 
         Method (CRYF, 3, Serialized)
         {
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
             While (One)
             {
-                Store (ToInteger (Arg1), _T_0) /* \_SB_.TPM_.CRYF._T_0 */
-                If (LEqual (_T_0, Zero))
+                Store (ToInteger (Arg1), T_0) /* \_SB_.TPM_.CRYF.T_0 */
+                If (LEqual (T_0, Zero))
                 {
                     Return (Buffer (One)
                     {
@@ -28433,7 +28433,7 @@ DT2D,8
                 }
                 Else
                 {
-                    If (LEqual (_T_0, One))
+                    If (LEqual (T_0, One))
                     {
                         Name (TPMV, Package (0x02)
                         {
@@ -28474,14 +28474,14 @@ DT2D,8
 
         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
         {
-            Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
             If (LEqual (Arg0, ToUUID ("3dddfaa6-361b-4eb4-a424-8d10089d1653") /* Physical Presence Interface */))
             {
                 While (One)
                 {
-                    Store (ToInteger (Arg2), _T_0) /* \_SB_.TPM_._DSM._T_0 */
-                    If (LEqual (_T_0, Zero))
+                    Store (ToInteger (Arg2), T_0) /* \_SB_.TPM_._DSM.T_0 */
+                    If (LEqual (T_0, Zero))
                     {
                         Return (Buffer (0x02)
                         {
@@ -28490,13 +28490,13 @@ DT2D,8
                     }
                     Else
                     {
-                        If (LEqual (_T_0, One))
+                        If (LEqual (T_0, One))
                         {
                             Return ("1.2")
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x02))
+                            If (LEqual (T_0, 0x02))
                             {
                                 ToInteger (DerefOf (Index (Arg3, Zero)), TMF2) /* \TMF2 */
                                 Store (0x12, TMF1) /* \TMF1 */
@@ -28523,7 +28523,7 @@ DT2D,8
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x03))
+                                If (LEqual (T_0, 0x03))
                                 {
                                     Name (PPI1, Package (0x02)
                                     {
@@ -28542,13 +28542,13 @@ DT2D,8
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x04))
+                                    If (LEqual (T_0, 0x04))
                                     {
                                         Return (TRST) /* \TRST */
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x05))
+                                        If (LEqual (T_0, 0x05))
                                         {
                                             Name (PPI2, Package (0x03)
                                             {
@@ -28603,13 +28603,13 @@ DT2D,8
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x06))
+                                            If (LEqual (T_0, 0x06))
                                             {
                                                 Return (0x03)
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0x07))
+                                                If (LEqual (T_0, 0x07))
                                                 {
                                                     ToInteger (DerefOf (Index (Arg3, Zero)), TMF2) /* \TMF2 */
                                                     Store (0x12, TMF1) /* \TMF1 */
@@ -28636,7 +28636,7 @@ DT2D,8
                                                 }
                                                 Else
                                                 {
-                                                    If (LEqual (_T_0, 0x08))
+                                                    If (LEqual (T_0, 0x08))
                                                     {
                                                         ToInteger (DerefOf (Index (Arg3, Zero)), TMF2) /* \TMF2 */
                                                         Store (0x43, TMF1) /* \TMF1 */
@@ -28667,8 +28667,8 @@ DT2D,8
                 {
                     While (One)
                     {
-                        Store (ToInteger (Arg2), _T_1) /* \_SB_.TPM_._DSM._T_1 */
-                        If (LEqual (_T_1, Zero))
+                        Store (ToInteger (Arg2), T_1) /* \_SB_.TPM_._DSM.T_1 */
+                        If (LEqual (T_1, Zero))
                         {
                             Return (Buffer (One)
                             {
@@ -28677,7 +28677,7 @@ DT2D,8
                         }
                         Else
                         {
-                            If (LEqual (_T_1, One))
+                            If (LEqual (T_1, One))
                             {
                                 Store (0x22, TMF1) /* \TMF1 */
                                 Store (TMF1, DAT) /* \_SB_.TPM_.DAT_ */

@@ -428,83 +428,83 @@ DefinitionBlock ("SSDT11.aml", "SSDT", 1, "OptRef", "OptTabl", 0x00001000)
 
         Method (CTOI, 1, Serialized)
         {
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
             While (One)
             {
-                Store (ToInteger (Arg0), _T_0) /* \_SB_.PCI0.IGPU.CTOI._T_0 */
-                If (LEqual (_T_0, One))
+                Store (ToInteger (Arg0), T_0) /* \_SB_.PCI0.IGPU.CTOI.T_0 */
+                If (LEqual (T_0, One))
                 {
                     Return (One)
                 }
                 Else
                 {
-                    If (LEqual (_T_0, 0x02))
+                    If (LEqual (T_0, 0x02))
                     {
                         Return (0x02)
                     }
                     Else
                     {
-                        If (LEqual (_T_0, 0x04))
+                        If (LEqual (T_0, 0x04))
                         {
                             Return (0x03)
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x08))
+                            If (LEqual (T_0, 0x08))
                             {
                                 Return (0x04)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x10))
+                                If (LEqual (T_0, 0x10))
                                 {
                                     Return (0x05)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x20))
+                                    If (LEqual (T_0, 0x20))
                                     {
                                         Return (0x06)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x40))
+                                        If (LEqual (T_0, 0x40))
                                         {
                                             Return (0x07)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x03))
+                                            If (LEqual (T_0, 0x03))
                                             {
                                                 Return (0x08)
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0x06))
+                                                If (LEqual (T_0, 0x06))
                                                 {
                                                     Return (0x09)
                                                 }
                                                 Else
                                                 {
-                                                    If (LEqual (_T_0, 0x0A))
+                                                    If (LEqual (T_0, 0x0A))
                                                     {
                                                         Return (0x0A)
                                                     }
                                                     Else
                                                     {
-                                                        If (LEqual (_T_0, 0x12))
+                                                        If (LEqual (T_0, 0x12))
                                                         {
                                                             Return (0x0B)
                                                         }
                                                         Else
                                                         {
-                                                            If (LEqual (_T_0, 0x22))
+                                                            If (LEqual (T_0, 0x22))
                                                             {
                                                                 Return (0x0C)
                                                             }
                                                             Else
                                                             {
-                                                                If (LEqual (_T_0, 0x42))
+                                                                If (LEqual (T_0, 0x42))
                                                                 {
                                                                     Return (0x0D)
                                                                 }
