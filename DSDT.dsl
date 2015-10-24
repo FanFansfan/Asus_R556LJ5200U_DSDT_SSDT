@@ -4588,6 +4588,20 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                 Scope (\_SB.PCI0.LPCB)
                 {
                 }
+                
+                Method (_DSM, 4, NotSerialized)
+                {
+                    Store (Package (0x02)
+                        {
+                            "device-id", 
+                            Buffer (0x04)
+                            {
+                                0xc3, 0x9c, 0x00, 0x00
+                            }
+                        }, Local0)
+                    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                    Return (Local0)
+                }
 
                 Method (SPTS, 1, NotSerialized)
                 {
