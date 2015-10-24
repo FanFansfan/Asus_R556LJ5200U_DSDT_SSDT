@@ -25711,212 +25711,22 @@ DT2D,8
 
         Method (_Q0A, 0, NotSerialized)  // _Qxx: EC Query
         {
-            Notify (SLPB, 0x80) // Status Change
+            
+            If (ATKP)
+            {
+                \_SB.ATKD.IANE (0x5E)
+            }
+
         }
 
         Method (_Q0B, 0, NotSerialized)  // _Qxx: EC Query
         {
-            If (LGreaterEqual (MSOS (), OSW8))
+            
+            If (ATKP)
             {
-                Notify (ASHS, 0x88) // Device-Specific
+                \_SB.ATKD.IANE (0x7D)
             }
-            Else
-            {
-                If (And (^^^^ATKD.WAPF, 0x04))
-                {
-                    If (ATKP)
-                    {
-                        ^^^^ATKD.IANE (0x88)
-                    }
-                }
-                Else
-                {
-                    Store (OHWR (), Local0)
-                    If (And (Local0, 0x02))
-                    {
-                        If (And (Local0, One))
-                        {
-                            Store (One, Local0)
-                        }
-                        Else
-                        {
-                            Store (Zero, Local0)
-                        }
-                    }
-                    Else
-                    {
-                        Store (One, Local0)
-                    }
 
-                    If (Local0)
-                    {
-                        If (And (^^^^ATKD.WAPF, One))
-                        {
-                            If (LAnd (WLDP, BTDP))
-                            {
-                                Store (WRST, Local0)
-                                Or (ShiftLeft (BRST, One), Local0, Local0)
-                                Increment (Local0)
-                                If (LGreater (Local0, 0x03))
-                                {
-                                    Store (Zero, Local0)
-                                }
-
-                                Store (DerefOf (Index (WBTL, Local0)), Local1)
-                                If (LEqual (Local1, Zero))
-                                {
-                                    ^^^^ATKD.IANE (0x74)
-                                    OWLD (Zero)
-                                    Sleep (0x0DAC)
-                                    OBTD (Zero)
-                                }
-
-                                If (LEqual (Local1, One))
-                                {
-                                    ^^^^ATKD.IANE (0x73)
-                                    OWLD (One)
-                                    Sleep (0x0DAC)
-                                    OBTD (One)
-                                }
-
-                                If (LEqual (Local1, 0x02))
-                                {
-                                    ^^^^ATKD.IANE (0x74)
-                                    OWLD (Zero)
-                                    Sleep (0x0DAC)
-                                    OBTD (Zero)
-                                }
-
-                                If (LEqual (Local1, 0x03))
-                                {
-                                    ^^^^ATKD.IANE (0x74)
-                                    OWLD (Zero)
-                                    Sleep (0x0DAC)
-                                    OBTD (Zero)
-                                }
-                            }
-                            Else
-                            {
-                                If (WLDP)
-                                {
-                                    ^^^^ATKD.IANE (0x5D)
-                                }
-                                Else
-                                {
-                                    If (BTDP)
-                                    {
-                                        If (BRST)
-                                        {
-                                            OBTD (Zero)
-                                            ^^^^ATKD.IANE (0x7E)
-                                        }
-                                        Else
-                                        {
-                                            OBTD (One)
-                                            ^^^^ATKD.IANE (0x7D)
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        Else
-                        {
-                            If (LAnd (WLDP, BTDP))
-                            {
-                                Store (WRST, Local0)
-                                Or (ShiftLeft (BRST, One), Local0, Local0)
-                                Increment (Local0)
-                                If (LGreater (Local0, 0x03))
-                                {
-                                    Store (Zero, Local0)
-                                }
-
-                                Store (DerefOf (Index (WBTL, Local0)), Local1)
-                                If (LEqual (Local1, Zero))
-                                {
-                                    OWLD (Zero)
-                                    ^^^^ATKD.IANE (0x5F)
-                                    Sleep (0x0DAC)
-                                    OBTD (Zero)
-                                    ^^^^ATKD.IANE (0x7E)
-                                }
-
-                                If (LEqual (Local1, One))
-                                {
-                                    OWLD (One)
-                                    ^^^^ATKD.IANE (0x5E)
-                                    Sleep (0x0DAC)
-                                    OBTD (Zero)
-                                    ^^^^ATKD.IANE (0x7E)
-                                }
-
-                                If (LEqual (Local1, 0x02))
-                                {
-                                    OWLD (Zero)
-                                    ^^^^ATKD.IANE (0x5F)
-                                    Sleep (0x0DAC)
-                                    OBTD (One)
-                                    ^^^^ATKD.IANE (0x7D)
-                                }
-
-                                If (LEqual (Local1, 0x03))
-                                {
-                                    OWLD (One)
-                                    ^^^^ATKD.IANE (0x5E)
-                                    Sleep (0x0DAC)
-                                    OBTD (One)
-                                    ^^^^ATKD.IANE (0x7D)
-                                }
-                            }
-                            Else
-                            {
-                                If (WLDP)
-                                {
-                                    If (WRST)
-                                    {
-                                        OWLD (Zero)
-                                        ^^^^ATKD.IANE (0x5F)
-                                    }
-                                    Else
-                                    {
-                                        OWLD (One)
-                                        ^^^^ATKD.IANE (0x5E)
-                                    }
-                                }
-                                Else
-                                {
-                                    If (BTDP)
-                                    {
-                                        If (BRST)
-                                        {
-                                            OBTD (Zero)
-                                            ^^^^ATKD.IANE (0x7E)
-                                        }
-                                        Else
-                                        {
-                                            OBTD (One)
-                                            ^^^^ATKD.IANE (0x7D)
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    Else
-                    {
-                        If (WLDP) {}
-                        If (LAnd (WLDP, BTDP))
-                        {
-                            Sleep (0x0DAC)
-                        }
-
-                        If (BTDP)
-                        {
-                            ^^^^ATKD.IANE (0x7E)
-                        }
-                    }
-                }
-            }
         }
 
         Name (WBTL, Package (0x04)
@@ -25928,32 +25738,22 @@ DT2D,8
         })
         Method (_Q0C, 0, NotSerialized)  // _Qxx: EC Query
         {
-            If (KBBL)
+            
+            If (ATKP)
             {
-                ^^^^ATKD.IANE (0xC5)
+                \_SB.ATKD.IANE (0x50)
             }
-            Else
-            {
-                If (ATKP)
-                {
-                    ^^^^ATKD.IANE (0x50)
-                }
-            }
+
         }
 
         Method (_Q0D, 0, NotSerialized)  // _Qxx: EC Query
         {
-            If (KBBL)
+            
+            If (ATKP)
             {
-                ^^^^ATKD.IANE (0xC4)
+                \_SB.ATKD.IANE (0x51)
             }
-            Else
-            {
-                If (ATKP)
-                {
-                    ^^^^ATKD.IANE (0x51)
-                }
-            }
+
         }
 
         Name (ASBN, Zero)
@@ -25972,380 +25772,82 @@ DT2D,8
 
         Method (_Q0E, 0, NotSerialized)  // _Qxx: EC Query
         {
-            If (LLess (MSOS (), OSW8))
+            
+            If (ATKP)
             {
-                SBRN ()
+                \_SB.ATKD.IANE (0x20)
             }
 
-            If (LGreaterEqual (MSOS (), OSVT))
-            {
-                Store (LBTN, Local0)
-                If (^^^IGPU.PRST ())
-                {
-                    If (LNotEqual (^^^IGPU.LCDD._DCS (), 0x1F))
-                    {
-                        Return (Zero)
-                    }
-
-                    ^^^IGPU.DWBL ()
-                    Store (One, ASBN) /* \_SB_.PCI0.LPCB.EC0_.ASBN */
-                }
-
-                If (^^^RP05.PEGP.PRST ())
-                {
-                    If (LNot (ASBN))
-                    {
-                        If (LNotEqual (^^^RP05.PEGP.LCDD._DCS, 0x1F))
-                        {
-                            Return (Zero)
-                        }
-
-                        ^^^RP05.PEGP.DWBL ()
-                        Store (One, ASBN) /* \_SB_.PCI0.LPCB.EC0_.ASBN */
-                    }
-                }
-
-                Store (Zero, ASBN) /* \_SB_.PCI0.LPCB.EC0_.ASBN */
-                If (ATKP)
-                {
-                    If (LGreaterEqual (MSOS (), OSW8)) {}
-                    Else
-                    {
-                        If (LGreater (Local0, Zero))
-                        {
-                            Decrement (Local0)
-                        }
-
-                        If (LGreater (Local0, 0x0A))
-                        {
-                            Store (0x0A, Local0)
-                        }
-
-                        Store (Local0, LBTN) /* \_SB_.LBTN */
-                        ^^^^ATKD.IANE (Add (Local0, 0x20))
-                    }
-                }
-            }
-            Else
-            {
-                If (LGreater (LBTN, Zero))
-                {
-                    Decrement (LBTN)
-                }
-
-                If (LGreater (LBTN, 0x0A))
-                {
-                    Store (0x0A, LBTN) /* \_SB_.LBTN */
-                }
-
-                STBR ()
-                If (ATKP)
-                {
-                    ^^^^ATKD.IANE (Add (LBTN, 0x20))
-                }
-            }
-
-            Return (Zero)
         }
 
         Method (_Q0F, 0, NotSerialized)  // _Qxx: EC Query
         {
-            If (LLess (MSOS (), OSW8))
+            
+            If (ATKP)
             {
-                SBRN ()
+                \_SB.ATKD.IANE (0x10)
             }
 
-            If (LGreaterEqual (MSOS (), OSVT))
-            {
-                Store (LBTN, Local0)
-                If (^^^IGPU.PRST ())
-                {
-                    If (LNotEqual (^^^IGPU.LCDD._DCS (), 0x1F))
-                    {
-                        Return (Zero)
-                    }
-
-                    ^^^IGPU.UPBL ()
-                    Store (One, ASBN) /* \_SB_.PCI0.LPCB.EC0_.ASBN */
-                }
-
-                If (^^^RP05.PEGP.PRST ())
-                {
-                    If (LNot (ASBN))
-                    {
-                        If (LNotEqual (^^^RP05.PEGP.LCDD._DCS, 0x1F))
-                        {
-                            Return (Zero)
-                        }
-
-                        ^^^RP05.PEGP.UPBL ()
-                        Store (One, ASBN) /* \_SB_.PCI0.LPCB.EC0_.ASBN */
-                    }
-                }
-
-                Store (Zero, ASBN) /* \_SB_.PCI0.LPCB.EC0_.ASBN */
-                If (ATKP)
-                {
-                    If (LGreaterEqual (MSOS (), OSW8)) {}
-                    Else
-                    {
-                        If (LLess (Local0, 0x0A))
-                        {
-                            Increment (Local0)
-                        }
-                        Else
-                        {
-                            Store (0x0A, Local0)
-                        }
-
-                        Store (Local0, LBTN) /* \_SB_.LBTN */
-                        ^^^^ATKD.IANE (Add (Local0, 0x10))
-                    }
-                }
-            }
-            Else
-            {
-                If (LLess (LBTN, 0x0A))
-                {
-                    Increment (LBTN)
-                }
-                Else
-                {
-                    Store (0x0A, LBTN) /* \_SB_.LBTN */
-                }
-
-                STBR ()
-                If (ATKP)
-                {
-                    ^^^^ATKD.IANE (Add (LBTN, 0x10))
-                }
-            }
-
-            Return (Zero)
         }
 
         Method (_Q10, 0, NotSerialized)  // _Qxx: EC Query
         {
-            If (LEqual (BLCT, Zero))
+            
+            If (ATKP)
             {
-                Store (One, Local0)
-                Store (RPIN (0x72), Local0)
-                XOr (Local0, One, Local0)
-                SPIN (0x72, Local0)
-                If (ATKP)
-                {
-                    Subtract (0x34, Local0, Local0)
-                    ^^^^ATKD.IANE (Local0)
-                }
+                \_SB.ATKD.IANE (0x35)
             }
-            Else
-            {
-                If (LEqual (BLCT, One))
-                {
-                    If (ATKP)
-                    {
-                        ^^^^ATKD.IANE (0x35)
-                    }
-                }
-            }
+
         }
 
         Method (_Q11, 0, Serialized)  // _Qxx: EC Query
         {
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
-            If (LGreaterEqual (MSOS (), OSW8))
+            
+            If (ATKP)
             {
-                If (LEqual (F8FG, Zero))
-                {
-                    Store (One, F8FG) /* \_SB_.PCI0.LPCB.EC0_.F8FG */
-                    STB2 (0xE0)
-                    STB2 (0x5B)
-                }
-
-                STB2 (0x19)
-                STB2 (0x99)
-                Return (Zero)
+                \_SB.ATKD.IANE (0x61)
             }
 
-            FHKW ()
-            Store (ADVG (), Local0)
-            If (NATK ())
-            {
-                If (LLess (Local0, 0x08))
-                {
-                    Add (Local0, 0x60, Local1)
-                }
-                Else
-                {
-                    If (LLess (Local0, 0x10))
-                    {
-                        Subtract (Local0, 0x08, Local1)
-                        Add (Local1, 0x8C, Local1)
-                    }
-                    Else
-                    {
-                        If (LLess (Local0, 0x20))
-                        {
-                            And (Local0, 0x07, Local1)
-                            Add (Local1, 0xA0, Local1)
-                        }
-                        Else
-                        {
-                            If (LLess (Local0, 0x40))
-                            {
-                                While (One)
-                                {
-                                    Store (ToInteger (Local0), _T_0) /* \_SB_.PCI0.LPCB.EC0_._Q11._T_0 */
-                                    If (LEqual (_T_0, 0x20))
-                                    {
-                                        Store (0xD0, Local1)
-                                    }
-                                    Else
-                                    {
-                                        If (LEqual (_T_0, 0x21))
-                                        {
-                                            Store (0xD1, Local1)
-                                        }
-                                        Else
-                                        {
-                                            If (LEqual (_T_0, 0x22))
-                                            {
-                                                Store (0xD2, Local1)
-                                            }
-                                            Else
-                                            {
-                                                If (LEqual (_T_0, 0x24))
-                                                {
-                                                    Store (0xD3, Local1)
-                                                }
-                                                Else
-                                                {
-                                                    If (LEqual (_T_0, 0x28))
-                                                    {
-                                                        Store (0xD4, Local1)
-                                                    }
-                                                    Else
-                                                    {
-                                                        If (LEqual (_T_0, 0x30))
-                                                        {
-                                                            Store (0xD5, Local1)
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-
-                                    Break
-                                }
-                            }
-                        }
-                    }
-                }
-
-                If (ATKP)
-                {
-                    If (LNotEqual (Local1, 0x60))
-                    {
-                        ^^^^ATKD.IANE (Local1)
-                    }
-                }
-                Else
-                {
-                    SWHG (Local0)
-                }
-            }
-            Else
-            {
-                SWHG (Local0)
-            }
-
-            FHKS ()
         }
 
         Method (_Q12, 0, NotSerialized)  // _Qxx: EC Query
         {
-            If (LNot (And (DSYN, One)))
+            
+            If (ATKP)
             {
-                If (ATKP)
-                {
-                    ^^^^ATKD.IANE (0x6B)
-                }
+                \_SB.ATKD.IANE (0x6B)
             }
-            Else
-            {
-                If (ATKP)
-                {
-                    ^^^^ATKD.IANE (0x6F)
-                }
-            }
+
         }
 
         Method (_Q13, 0, NotSerialized)  // _Qxx: EC Query
         {
-            If (LGreaterEqual (MSOS (), OSW8))
-            {
-                STB2 (0xE0)
-                STB2 (0x20)
-                STB2 (0xE0)
-                STB2 (0xA0)
-                Return (Zero)
-            }
-
+            
             If (ATKP)
             {
-                ^^^^ATKD.IANE (0x32)
+                \_SB.ATKD.IANE (0x32)
             }
 
-            Return (Zero)
         }
 
         Method (_Q14, 0, NotSerialized)  // _Qxx: EC Query
         {
-            If (LGreaterEqual (MSOS (), OSW8))
-            {
-                STB2 (0xE0)
-                STB2 (0x2E)
-                STB2 (0xE0)
-                STB2 (0xAE)
-                Return (Zero)
-            }
-
-            If (LLess (AVOL, 0x0F))
-            {
-                Increment (AVOL)
-            }
-
+            
             If (ATKP)
             {
-                ^^^^ATKD.IANE (0x31)
+                \_SB.ATKD.IANE (0x31)
             }
 
-            Return (Zero)
         }
 
         Method (_Q15, 0, NotSerialized)  // _Qxx: EC Query
         {
-            If (LGreaterEqual (MSOS (), OSW8))
-            {
-                STB2 (0xE0)
-                STB2 (0x30)
-                STB2 (0xE0)
-                STB2 (0xB0)
-                Return (Zero)
-            }
-
-            If (LGreater (AVOL, Zero))
-            {
-                Decrement (AVOL)
-            }
-
+            
             If (ATKP)
             {
-                ^^^^ATKD.IANE (0x30)
+                \_SB.ATKD.IANE (0x30)
             }
 
-            Return (Zero)
         }
 
         Method (_Q6F, 0, NotSerialized)  // _Qxx: EC Query
