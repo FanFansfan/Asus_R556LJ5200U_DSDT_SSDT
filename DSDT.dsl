@@ -9774,7 +9774,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                     Store (0x07D9, OSYS) /* \OSYS */
                 }
 
-                If (_OSI ("Windows 2012"))
+                If(LOr(_OSI("Darwin"),_OSI("Windows 2012")))
                 {
                     Store (0x07DC, OSYS) /* \OSYS */
                 }
