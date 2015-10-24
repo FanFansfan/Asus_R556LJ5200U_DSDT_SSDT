@@ -27927,38 +27927,13 @@ DT2D,8
                     _Y20)
             })
 
-            Method (_STA, 0, NotSerialized)  // _STA: Status
+            
+
+            
+            Name (_STA, 0x0F)
+            Method (_CRS, 0, NotSerialized)
             {
-                If (HPAE)
-                {
-                    Return (0x0F)
-                }
-
-                Return (Zero)
-            }
-
-            Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
-            {
-                If (HPAE)
-                {
-                    CreateDWordField (BUF0, \_SB.PCI0.LPCB.HPET._Y20._BAS, HPT0)  // _BAS: Base Address
-                    If (LEqual (HPAS, One))
-                    {
-                        Store (0xFED01000, HPT0) /* \_SB_.PCI0.LPCB.HPET._CRS.HPT0 */
-                    }
-
-                    If (LEqual (HPAS, 0x02))
-                    {
-                        Store (0xFED02000, HPT0) /* \_SB_.PCI0.LPCB.HPET._CRS.HPT0 */
-                    }
-
-                    If (LEqual (HPAS, 0x03))
-                    {
-                        Store (0xFED03000, HPT0) /* \_SB_.PCI0.LPCB.HPET._CRS.HPT0 */
-                    }
-                }
-
-                Return (BUF0) /* \_SB_.PCI0.LPCB.HPET.BUF0 */
+                Return (BUF0)
             }
         }
 
