@@ -18099,8 +18099,10 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                 Offset (0x8A), 
                 HKEN,   1, 
                 Offset (0x93), 
-                TAH0,   16, 
-                TAH1,   16, 
+                TAHA,8,
+TAHB,8, 
+                TAHC,8,
+TAHD,8, 
                 TSTP,   8, 
                 Offset (0x9C), 
                 CDT4,   8, 
@@ -18125,7 +18127,8 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                 B0TM,   16, 
                 B0C1,   16, 
                 B0C2,   16, 
-                B0C3,   16, 
+                B0CA,8,
+B0CB,8, 
                 B0C4,   16, 
                 Offset (0xD0), 
                 B1PN,   16, 
@@ -18143,11 +18146,13 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                 Offset (0xF0), 
                 Offset (0xF2), 
                 Offset (0xF4), 
-                B0SN,   16, 
+                B0SA,8,
+B0SB,8, 
                 Offset (0xF8), 
                 Offset (0xFA), 
                 Offset (0xFC), 
-                B1SN,   16
+                B0N0,8,
+B0N1,8
             }
 
             Name (SMBF, Zero)
@@ -18204,7 +18209,8 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
             Field (SMBX, ByteAcc, NoLock, Preserve)
             {
                 Offset (0x04), 
-                DT2B,   16
+                DT2C,8,
+DT2D,8
             }
 
             OperationRegion (NSBS, EmbeddedControl, 0x40, 0x04)
@@ -18270,6 +18276,51 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                 If (LEqual (Arg0, 0x03))
                 {
                     Store (Arg1, ECFL) /* \_SB_.PCI0.LPCB.EC0_.ECFL */
+                }
+            }
+            Method (RE1B, 1, NotSerialized)
+            {
+                OperationRegion(ERAM, EmbeddedControl, Arg0, 1)
+                Field(ERAM, ByteAcc, NoLock, Preserve) { BYTE, 8 }
+                Return(BYTE)
+            }
+            Method (RECB, 2, Serialized)
+            // Arg0 - offset in bytes from zero-based EC
+            // Arg1 - size of buffer in bits
+            {
+                ShiftRight(Arg1, 3, Arg1)
+                Name(TEMP, Buffer(Arg1) { })
+                Add(Arg0, Arg1, Arg1)
+                Store(0, Local0)
+                While (LLess(Arg0, Arg1))
+                {
+                    Store(RE1B(Arg0), Index(TEMP, Local0))
+                    Increment(Arg0)
+                    Increment(Local0)
+                }
+                Return(TEMP)
+            }
+            Method (WE1B, 2, NotSerialized)
+            {
+                OperationRegion(ERAM, EmbeddedControl, Arg0, 1)
+                Field(ERAM, ByteAcc, NoLock, Preserve) { BYTE, 8 }
+                Store(Arg1, BYTE)
+            }
+            Method (WECB, 3, Serialized)
+            // Arg0 - offset in bytes from zero-based EC
+            // Arg1 - size of buffer in bits
+            // Arg2 - value to write
+            {
+                ShiftRight(Arg1, 3, Arg1)
+                Name(TEMP, Buffer(Arg1) { })
+                Store(Arg2, TEMP)
+                Add(Arg0, Arg1, Arg1)
+                Store(0, Local0)
+                While (LLess(Arg0, Arg1))
+                {
+                    WE1B(Arg0, DerefOf(Index(TEMP, Local0)))
+                    Increment(Arg0)
+                    Increment(Local0)
                 }
             }
         }
@@ -20727,7 +20778,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                     Divide (DerefOf (Index (BIXT, 0x0F)), 0x03E8, Local0, Index (BIXT, 0x0F))
                 }
 
-                Store (^^LPCB.EC0.B0C3, Index (BIXT, 0x08))
+                Store (B1B2 (^^LPCB.EC0.B0CA, ^^LPCB.EC0.B0CB), Index (BIXT, 0x08))
                 Store (0x0001869F, Index (BIXT, 0x09))
                 Return (BIXT) /* \_SB_.PCI0.BAT0.BIXT */
             }
@@ -20956,11 +21007,11 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
             {
                 If (BSLF)
                 {
-                    Store (B1SN, Local0)
+                    Store (B1B2(B0N0,B0N1), Local0)
                 }
                 Else
                 {
-                    Store (B0SN, Local0)
+                    Store (B1B2(B0SA,B0SB), Local0)
                 }
             }
             Else
@@ -24627,7 +24678,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                     If (LEqual (Arg0, RDWD))
                     {
                         Store (0x02, Index (Local0, One))
-                        Store (DT2B, Index (Local0, 0x02))
+                        Store (B1B2(DT2C,DT2D), Index (Local0, 0x02))
                     }
 
                     If (LEqual (Arg0, RDBT))
@@ -24715,7 +24766,8 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
 
                 If (LEqual (Arg0, WRWD))
                 {
-                    Store (Arg4, DT2B) /* \_SB_.PCI0.LPCB.EC0_.DT2B */
+                    Store (ShiftRight(Arg4,8),DT2D)
+                    Store (Arg4,DT2C) /* \_SB_.PCI0.LPCB.EC0_.DT2B */
                 }
 
                 If (LEqual (Arg0, WRBT))
@@ -25479,14 +25531,14 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                     Store (Arg0, _T_0) /* \_SB_.PCI0.LPCB.EC0_.TACH._T_0 */
                     If (LEqual (_T_0, Zero))
                     {
-                        Store (TAH0, Local0)
+                        Store (B1B2(TAHA,TAHB), Local0)
                         Break
                     }
                     Else
                     {
                         If (LEqual (_T_0, One))
                         {
-                            Store (TAH1, Local0)
+                            Store (B1B2(TAHC,TAHD), Local0)
                             Break
                         }
                         Else
@@ -29367,5 +29419,11 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
             }
         }
     }
+
+Method (B1B2, 2, NotSerialized)
+{
+    Return(Or(Arg0, ShiftLeft(Arg1, 8)))
+}
+
 }
 
