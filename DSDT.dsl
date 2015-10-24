@@ -3310,14 +3310,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                     })
                 }
 
-                Device (PXSX)
-                {
-                    Name (_ADR, Zero)  // _ADR: Address
-                    Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
-                    {
-                        Return (HPCE) /* \_SB_.PCI0.RP03.HPCE */
-                    }
-                }
+                
 
                 Method (HPME, 0, Serialized)
                 {
@@ -3345,7 +3338,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                             }
                         }
 
-                        Notify (PXSX, 0x02) // Device Wake
+                        Notify (LAN0, 0x02) // Device Wake
                     }
                 }
 
@@ -3387,6 +3380,19 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                         Offset (0xE0), 
                             ,   15, 
                         PMES,   1
+                    }
+                }
+                Device (LAN0)
+                {
+                    Name (_ADR, Zero)
+                    Method (_DSM, 4, NotSerialized)
+                    {
+                        Store (Package (0x04) {
+                            "built-in", Buffer (One) {0x01},
+                            "location", Buffer (0x02) {"1"}
+                        }, Local0)
+                        DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                        Return (Local0)
                     }
                 }
             }
@@ -13081,162 +13087,9 @@ If (Arg0)
         }
     }
 
-    Scope (_SB.PCI0.RP03.PXSX)
+    Scope (_SB.PCI0.RP03.LAN0)
     {
-        Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
-        {
-            Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
-            If (LEqual (Arg0, ToUUID ("1730e71d-e5dd-4a34-be57-4d76b6a2fe37")))
-            {
-                If (LEqual (Arg2, Zero))
-                {
-                    If (LEqual (Arg1, Zero))
-                    {
-                        Return (Buffer (One)
-                        {
-                             0x03                                             /* . */
-                        })
-                    }
-                    Else
-                    {
-                        Return (Buffer (One)
-                        {
-                             0x00                                             /* . */
-                        })
-                    }
-                }
-
-                If (LEqual (Arg2, One))
-                {
-                    While (One)
-                    {
-                        Store (DerefOf (Index (Arg3, Zero)), _T_0) /* \_SB_.PCI0.RP03.PXSX._DSM._T_0 */
-                        If (LEqual (_T_0, Zero)) {}
-                        Else
-                        {
-                            If (LEqual (_T_0, One))
-                            {
-                                If (CondRefOf (\_SB.SLPB))
-                                {
-                                    Notify (SLPB, 0x80) // Status Change
-                                }
-                            }
-                            Else
-                            {
-                                If (LEqual (_T_0, 0x02)) {}
-                                Else
-                                {
-                                    If (LEqual (_T_0, 0x03)) {}
-                                    Else
-                                    {
-                                        If (LEqual (_T_0, 0x04))
-                                        {
-                                            If (CondRefOf (\_SB.SLPB))
-                                            {
-                                                Notify (SLPB, 0x02) // Device Wake
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
-                        Break
-                    }
-                }
-
-                Return (Zero)
-            }
-            Else
-            {
-                If (LEqual (Arg0, ToUUID ("7574eb17-d1a2-4cc2-9929-4a08fcc29107")))
-                {
-                    While (One)
-                    {
-                        Store (Arg2, _T_1) /* \_SB_.PCI0.RP03.PXSX._DSM._T_1 */
-                        If (LEqual (_T_1, Zero))
-                        {
-                            If (LEqual (Arg1, Zero))
-                            {
-                                Return (Buffer (One)
-                                {
-                                     0x07                                             /* . */
-                                })
-                            }
-                            Else
-                            {
-                                Return (Buffer (One)
-                                {
-                                     0x00                                             /* . */
-                                })
-                            }
-                        }
-                        Else
-                        {
-                            If (LEqual (_T_1, One))
-                            {
-                                Return (WHIT ())
-                            }
-                            Else
-                            {
-                                If (LEqual (_T_1, 0x02))
-                                {
-                                    Return (SELF ())
-                                }
-                                Else
-                                {
-                                    Return (Buffer (One)
-                                    {
-                                         0x00                                             /* . */
-                                    })
-                                }
-                            }
-                        }
-
-                        Break
-                    }
-                }
-                Else
-                {
-                    Return (Buffer (One)
-                    {
-                         0x00                                             /* . */
-                    })
-                }
-            }
-        }
-
-        OperationRegion (RPXX, PCI_Config, Zero, 0x10)
-        Field (RPXX, AnyAcc, NoLock, Preserve)
-        {
-            VDID,   32
-        }
-
-        Name (SPLX, Package (0x04)
-        {
-            Zero, 
-            Package (0x03)
-            {
-                0x80000000, 
-                0x80000000, 
-                0x80000000
-            }, 
-
-            Package (0x03)
-            {
-                0x80000000, 
-                0x80000000, 
-                0x80000000
-            }, 
-
-            Package (0x03)
-            {
-                0x80000000, 
-                0x80000000, 
-                0x80000000
-            }
-        })
+        
         Method (SPLC, 0, Serialized)
         {
             Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
@@ -13319,17 +13172,6 @@ If (Arg0)
 
                 Break
             }
-
-            Store (DOM1, Index (DerefOf (Index (SPLX, One)), Zero))
-            Store (LIM1, Index (DerefOf (Index (SPLX, One)), One))
-            Store (TIM1, Index (DerefOf (Index (SPLX, One)), 0x02))
-            Store (DOM2, Index (DerefOf (Index (SPLX, 0x02)), Zero))
-            Store (LIM2, Index (DerefOf (Index (SPLX, 0x02)), One))
-            Store (TIM2, Index (DerefOf (Index (SPLX, 0x02)), 0x02))
-            Store (DOM3, Index (DerefOf (Index (SPLX, 0x03)), Zero))
-            Store (LIM3, Index (DerefOf (Index (SPLX, 0x03)), One))
-            Store (TIM3, Index (DerefOf (Index (SPLX, 0x03)), 0x02))
-            Return (SPLX) /* \_SB_.PCI0.RP03.PXSX.SPLX */
         }
 
         Name (WANX, Package (0x03)
@@ -15671,7 +15513,7 @@ If (Arg0)
         }
     }
 
-    Scope (_SB.PCI0.RP03.PXSX)
+    Scope (_SB.PCI0.RP03.LAN0)
     {
         Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
         {
@@ -17366,7 +17208,7 @@ If (Arg0)
                                 Store (One, Index (DerefOf (Index (DEVY, 0x1B)), One))
                             }
 
-                            If (^^PCI0.RP03.PXSX.PAHC ())
+                            If (^^PCI0.RP03.LAN0.PAHC ())
                             {
                                 Store (One, Index (DerefOf (Index (DEVY, 0x1C)), One))
                             }
@@ -17420,7 +17262,7 @@ If (Arg0)
                                 Store (One, Index (DerefOf (Index (DEVY, 0x13)), One))
                             }
 
-                            If (LOr (^^PCI0.RP03.PXSX.PAHC (), ^^PCI0.RP03.PXSX.PNVM ()))
+                            If (LOr (^^PCI0.RP03.LAN0.PAHC (), ^^PCI0.RP03.LAN0.PNVM ()))
                             {
                                 Store (One, Index (DerefOf (Index (DEVY, 0x14)), One))
                             }
@@ -17527,7 +17369,7 @@ If (Arg0)
                                 Store (One, Index (DerefOf (Index (DEVY, 0x13)), One))
                             }
 
-                            If (^^PCI0.RP03.PXSX.WIST ())
+                            If (^^PCI0.RP03.LAN0.WIST ())
                             {
                                 Store (0x03, Index (DerefOf (Index (DerefOf (Index (DerefOf (Index (DEVY, 0x14)), 
                                     0x02)), One)), One))
