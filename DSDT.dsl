@@ -13321,160 +13321,79 @@ If (Arg0)
 
     Scope (_SB.PCI0.RP04.PXSX)
     {
-        Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
-        {
-            Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
-            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
-            If (LEqual (Arg0, ToUUID ("1730e71d-e5dd-4a34-be57-4d76b6a2fe37")))
-            {
-                If (LEqual (Arg2, Zero))
+        Method (_DSM, 4, NotSerialized)
                 {
-                    If (LEqual (Arg1, Zero))
+                    If (LEqual (Arg2, Zero))
                     {
                         Return (Buffer (One)
                         {
-                             0x03                                             /* . */
+                            0x03
                         })
                     }
-                    Else
-                    {
-                        Return (Buffer (One)
-                        {
-                             0x00                                             /* . */
-                        })
-                    }
-                }
 
-                If (LEqual (Arg2, One))
-                {
-                    While (One)
+                    Return (Package (0x16)
                     {
-                        Store (DerefOf (Index (Arg3, Zero)), T_0) /* \_SB_.PCI0.RP04.PXSX._DSM.T_0 */
-                        If (LEqual (T_0, Zero)) {}
-                        Else
+                        "AAPL,slot-name", 
+                        Buffer (0x05)
                         {
-                            If (LEqual (T_0, One))
-                            {
-                                If (CondRefOf (\_SB.SLPB))
-                                {
-                                    Notify (SLPB, 0x80) // Status Change
-                                }
-                            }
-                            Else
-                            {
-                                If (LEqual (T_0, 0x02)) {}
-                                Else
-                                {
-                                    If (LEqual (T_0, 0x03)) {}
-                                    Else
-                                    {
-                                        If (LEqual (T_0, 0x04))
-                                        {
-                                            If (CondRefOf (\_SB.SLPB))
-                                            {
-                                                Notify (SLPB, 0x02) // Device Wake
-                                            }
-                                        }
-                                    }
-                                }
-                            }
+                            "PCIe"
+                        }, 
+
+                        "built-in", 
+                        Buffer (One)
+                        {
+                            0x01
+                        }, 
+
+                        "name", 
+                        Buffer (0x0D)
+                        {
+                            "pci14e4,43a0"
+                        }, 
+
+                        "device-id", 
+                        Buffer (0x04)
+                        {
+                            0xA0, 0x43, 0x00, 0x00
+                        }, 
+
+                        "vendor-id", 
+                        Buffer (0x04)
+                        {
+                            0xE4, 0x14, 0x00, 0x00
+                        }, 
+
+                        "subsystem-vendor-id", 
+                        Buffer (0x04)
+                        {
+                            0x6B, 0x10, 0x00, 0x00
+                        }, 
+
+                        "subsystem-id", 
+                        Buffer (0x04)
+                        {
+                            0x34, 0x01, 0x00, 0x00
+                        }, 
+
+                        "compatible", 
+                        "pci14e4,43a0", 
+                        "IOName", 
+                        "pci14e4,43a0", 
+                        "device_type", 
+                        Buffer (0x11)
+                        {
+                            "Wi-Fi Controller"
+                        }, 
+
+                        "model", 
+                        Buffer (0x33)
+                        {
+                            "Broadcom BCM4352 802.11ac Wireless Network Adapter"
                         }
-
-                        Break
-                    }
-                }
-
-                Return (Zero)
-            }
-            Else
-            {
-                If (LEqual (Arg0, ToUUID ("7574eb17-d1a2-4cc2-9929-4a08fcc29107")))
-                {
-                    While (One)
-                    {
-                        Store (Arg2, T_1) /* \_SB_.PCI0.RP04.PXSX._DSM.T_1 */
-                        If (LEqual (T_1, Zero))
-                        {
-                            If (LEqual (Arg1, Zero))
-                            {
-                                Return (Buffer (One)
-                                {
-                                     0x07                                             /* . */
-                                })
-                            }
-                            Else
-                            {
-                                Return (Buffer (One)
-                                {
-                                     0x00                                             /* . */
-                                })
-                            }
-                        }
-                        Else
-                        {
-                            If (LEqual (T_1, One))
-                            {
-                                Return (WHIT ())
-                            }
-                            Else
-                            {
-                                If (LEqual (T_1, 0x02))
-                                {
-                                    Return (SELF ())
-                                }
-                                Else
-                                {
-                                    Return (Buffer (One)
-                                    {
-                                         0x00                                             /* . */
-                                    })
-                                }
-                            }
-                        }
-
-                        Break
-                    }
-                }
-                Else
-                {
-                    Return (Buffer (One)
-                    {
-                         0x00                                             /* . */
                     })
                 }
-            }
-        }
-
-        OperationRegion (RPXX, PCI_Config, Zero, 0x10)
-        Field (RPXX, AnyAcc, NoLock, Preserve)
-        {
-            VDID,   32
-        }
-
-        Name (SPLX, Package (0x04)
-        {
-            Zero, 
-            Package (0x03)
-            {
-                0x80000000, 
-                0x80000000, 
-                0x80000000
-            }, 
-
-            Package (0x03)
-            {
-                0x80000000, 
-                0x80000000, 
-                0x80000000
-            }, 
-
-            Package (0x03)
-            {
-                0x80000000, 
-                0x80000000, 
-                0x80000000
-            }
-        })
+        
+                
         Method (SPLC, 0, Serialized)
         {
             Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
@@ -13557,17 +13476,6 @@ If (Arg0)
 
                 Break
             }
-
-            Store (DOM1, Index (DerefOf (Index (SPLX, One)), Zero))
-            Store (LIM1, Index (DerefOf (Index (SPLX, One)), One))
-            Store (TIM1, Index (DerefOf (Index (SPLX, One)), 0x02))
-            Store (DOM2, Index (DerefOf (Index (SPLX, 0x02)), Zero))
-            Store (LIM2, Index (DerefOf (Index (SPLX, 0x02)), One))
-            Store (TIM2, Index (DerefOf (Index (SPLX, 0x02)), 0x02))
-            Store (DOM3, Index (DerefOf (Index (SPLX, 0x03)), Zero))
-            Store (LIM3, Index (DerefOf (Index (SPLX, 0x03)), One))
-            Store (TIM3, Index (DerefOf (Index (SPLX, 0x03)), 0x02))
-            Return (SPLX) /* \_SB_.PCI0.RP04.PXSX.SPLX */
         }
 
         Name (WANX, Package (0x03)
