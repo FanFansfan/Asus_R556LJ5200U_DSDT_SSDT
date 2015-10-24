@@ -25,12 +25,14 @@ DefinitionBlock ("SSDT10.aml", "SSDT", 2, "SgRef", "SgPch", 0x00001000)
      * External declarations that were imported from
      * the reference file [refs.txt]
      */
-    External (_SB_.PCI0.PEG0.PEGP.SGPO, MethodObj)    // 2 Arguments
+    
 
     External (_SB_.PCI0.LPCB.EC0_.RRAM, MethodObj)    // 1 Arguments
     External (_SB_.PCI0.LPCB.EC0_.WRAM, MethodObj)    // 2 Arguments
     External (_SB_.PCI0.RP05, DeviceObj)
     External (_SB_.PCI0.RP05.PEGP.NHDA, FieldUnitObj)
+    External (_SB_.PCI0.PEG0.PEGP.SGPO, MethodObj)    // 2 Arguments
+    External (\_SB.PCI0.RP05.PEGP._OFF, MethodObj)
     External (DLHR, FieldUnitObj)
     External (DLPW, FieldUnitObj)
     External (EBAS, FieldUnitObj)
@@ -190,6 +192,8 @@ DefinitionBlock ("SSDT10.aml", "SSDT", 2, "SgRef", "SgPch", 0x00001000)
         Method (_INI, 0, NotSerialized)  // _INI: Initialize
         {
             Store (Zero, \_SB.PCI0.RP05.PEGP._ADR)
+            \_SB.PCI0.RP05.PEGP._OFF ()
+            
         }
 
         Method (SGON, 0, Serialized)
