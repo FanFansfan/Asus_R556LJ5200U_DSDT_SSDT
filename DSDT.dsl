@@ -79,27 +79,27 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
     External (_SB_.PCI0.B0D3.ABAR, FieldUnitObj)
     External (_SB_.PCI0.B0D3.BARA, IntObj)
     External (_SB_.PCI0.EPON, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.ADVD, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.AINT, MethodObj)    // 2 Arguments
-    External (_SB_.PCI0.GFX0.CBLV, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CLID, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.DD1F, UnknownObj)
-    External (_SB_.PCI0.GFX0.DWBL, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.GCBL, MethodObj)    // 1 Arguments
-    External (_SB_.PCI0.GFX0.GCDS, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.GLID, MethodObj)    // 1 Arguments
-    External (_SB_.PCI0.GFX0.GSCI, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.GSSE, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.IUEH, MethodObj)    // 1 Arguments
-    External (_SB_.PCI0.GFX0.LCDD._DCS, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.NATK, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.OPTS, MethodObj)    // 1 Arguments
-    External (_SB_.PCI0.GFX0.OWAK, MethodObj)    // 1 Arguments
-    External (_SB_.PCI0.GFX0.PRST, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.STAT, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.SWHD, MethodObj)    // 1 Arguments
-    External (_SB_.PCI0.GFX0.TCHE, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.UPBL, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.ADVD, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.AINT, MethodObj)    // 2 Arguments
+    External (_SB_.PCI0.IGPU.CBLV, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CLID, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.DD1F, UnknownObj)
+    External (_SB_.PCI0.IGPU.DWBL, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.GCBL, MethodObj)    // 1 Arguments
+    External (_SB_.PCI0.IGPU.GCDS, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.GLID, MethodObj)    // 1 Arguments
+    External (_SB_.PCI0.IGPU.GSCI, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.GSSE, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.IUEH, MethodObj)    // 1 Arguments
+    External (_SB_.PCI0.IGPU.LCDD._DCS, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.NATK, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.OPTS, MethodObj)    // 1 Arguments
+    External (_SB_.PCI0.IGPU.OWAK, MethodObj)    // 1 Arguments
+    External (_SB_.PCI0.IGPU.PRST, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.STAT, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.SWHD, MethodObj)    // 1 Arguments
+    External (_SB_.PCI0.IGPU.TCHE, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.UPBL, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.LPCB.H_EC.CHRG, UnknownObj)
     External (_SB_.PCI0.PEG0.HPME, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.PEG1.HPME, MethodObj)    // 0 Arguments
@@ -2553,7 +2553,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                     Name (_ADR, 0x00030000)  // _ADR: Address
                 }
 
-                Device (GFX0)
+                Device (IGPU)
                 {
                     Name (_ADR, 0x00020000)  // _ADR: Address
                 }
@@ -4838,7 +4838,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
     {
         If (LEqual (And (DIDX, 0x0F00), 0x0400))
         {
-            Notify (\_SB.PCI0.GFX0.DD1F, Arg0)
+            Notify (\_SB.PCI0.IGPU.DD1F, Arg0)
         }
     }
 
@@ -9452,16 +9452,16 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
 
         If (And (ICNF, 0x10))
         {
-            If (And (\_SB.PCI0.GFX0.TCHE, 0x0100))
+            If (And (\_SB.PCI0.IGPU.TCHE, 0x0100))
             {
                 If (LAnd (And (\_SB.IAOE.IBT1, One), And (\_SB.IAOE.WKRS, 0x10)))
                 {
-                    Store (Or (And (\_SB.PCI0.GFX0.STAT, 0xFFFFFFFFFFFFFFFC), One), \_SB.PCI0.GFX0.STAT) /* External reference */
+                    Store (Or (And (\_SB.PCI0.IGPU.STAT, 0xFFFFFFFFFFFFFFFC), One), \_SB.PCI0.IGPU.STAT) /* External reference */
                     ADBG ("Turning off Gfx")
                 }
                 Else
                 {
-                    Store (And (\_SB.PCI0.GFX0.STAT, 0xFFFFFFFFFFFFFFFC), \_SB.PCI0.GFX0.STAT) /* External reference */
+                    Store (And (\_SB.PCI0.IGPU.STAT, 0xFFFFFFFFFFFFFFFC), \_SB.PCI0.IGPU.STAT) /* External reference */
                     ADBG ("Keeping Gfx on")
                 }
             }
@@ -10592,9 +10592,9 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
 
         Method (_L66, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
         {
-            If (LAnd (\_SB.PCI0.GFX0.GSSE, LNot (GSMI)))
+            If (LAnd (\_SB.PCI0.IGPU.GSSE, LNot (GSMI)))
             {
-                \_SB.PCI0.GFX0.GSCI ()
+                \_SB.PCI0.IGPU.GSCI ()
             }
         }
 
@@ -10609,7 +10609,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
             {
                 ADBG ("Rotation Lock")
                 Sleep (0x03E8)
-                \_SB.PCI0.GFX0.IUEH (0x04)
+                \_SB.PCI0.IGPU.IUEH (0x04)
             }
         }
     }
@@ -15368,7 +15368,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
         }
     }
 
-    Scope (_SB.PCI0.GFX0)
+    Scope (_SB.PCI0.IGPU)
     {
         Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
         {
@@ -16198,7 +16198,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                 0x02, 
                 Package (0x01)
                 {
-                    "\\_SB.PCI0.GFX0"
+                    "\\_SB.PCI0.IGPU"
                 }, 
 
                 Package (0x01)
@@ -16210,7 +16210,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
             {
                 Package (0x02)
                 {
-                    "\\_SB.PCI0.GFX0", 
+                    "\\_SB.PCI0.IGPU", 
                     0xFFFFFFFF
                 }, 
 
@@ -16320,7 +16320,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.GFX0", 
+                    "\\_SB.PCI0.IGPU", 
                     One, 
                     Package (0x02)
                     {
@@ -17213,7 +17213,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
                                         One, 
                                         Package (0x01)
                                         {
-                                            "\\_SB.PCI0.GFX0"
+                                            "\\_SB.PCI0.IGPU"
                                         }
                                     })
                                 }
@@ -18707,9 +18707,9 @@ DT2D,8
         Name (ONAM, "ASUSTeK")
         Method (ADVG, 0, NotSerialized)
         {
-            If (\_SB.PCI0.GFX0.PRST ())
+            If (\_SB.PCI0.IGPU.PRST ())
             {
-                Return (\_SB.PCI0.GFX0.ADVD ())
+                Return (\_SB.PCI0.IGPU.ADVD ())
             }
 
             If (\_SB.PCI0.RP05.PEGP.PRST ())
@@ -18722,9 +18722,9 @@ DT2D,8
 
         Method (GCDM, 0, NotSerialized)
         {
-            If (\_SB.PCI0.GFX0.PRST ())
+            If (\_SB.PCI0.IGPU.PRST ())
             {
-                Return (\_SB.PCI0.GFX0.GCDS ())
+                Return (\_SB.PCI0.IGPU.GCDS ())
             }
 
             If (\_SB.PCI0.RP05.PEGP.PRST ())
@@ -18737,9 +18737,9 @@ DT2D,8
 
         Method (SWHG, 1, Serialized)
         {
-            If (\_SB.PCI0.GFX0.PRST ())
+            If (\_SB.PCI0.IGPU.PRST ())
             {
-                \_SB.PCI0.GFX0.SWHD (Arg0)
+                \_SB.PCI0.IGPU.SWHD (Arg0)
                 Return (One)
             }
 
@@ -18754,9 +18754,9 @@ DT2D,8
 
         Method (NATK, 0, NotSerialized)
         {
-            If (\_SB.PCI0.GFX0.PRST ())
+            If (\_SB.PCI0.IGPU.PRST ())
             {
-                Return (\_SB.PCI0.GFX0.NATK ())
+                Return (\_SB.PCI0.IGPU.NATK ())
             }
 
             If (\_SB.PCI0.RP05.PEGP.PRST ())
@@ -21198,7 +21198,7 @@ DT2D,8
                 Store (One, ECUP) /* \ECUP */
             }
 
-            \_SB.PCI0.GFX0.OPTS (Arg0)
+            \_SB.PCI0.IGPU.OPTS (Arg0)
             If (LEqual (Arg0, 0x03))
             {
                 If (LLessEqual (MSOS (), OSME))
@@ -21243,7 +21243,7 @@ DT2D,8
         Method (OEMW, 1, NotSerialized)
         {
             \_SB.ATKD.GENW (Arg0)
-            \_SB.PCI0.GFX0.OWAK (Arg0)
+            \_SB.PCI0.IGPU.OWAK (Arg0)
             ISMI (0x9E)
             Store (Zero, \_SB.SLPT)
             \_SB.PCI0.LPCB.EC0.EC0W (Arg0)
@@ -24334,7 +24334,7 @@ DT2D,8
                             ShiftLeft (Local4, 0x04, Local4)
                             Store (LBTN, Local3)
                             Store (Add (Local4, Local3), Local3)
-                            ^^^GFX0.AINT (One, Divide (Multiply (DerefOf (Index (PWAC, Local3)), 0x64), 0xFF, 
+                            ^^^IGPU.AINT (One, Divide (Multiply (DerefOf (Index (PWAC, Local3)), 0x64), 0xFF, 
                                 ))
                         }
                     }
@@ -25945,9 +25945,9 @@ DT2D,8
         Name (ASBN, Zero)
         Method (SBRN, 0, Serialized)
         {
-            If (^^^GFX0.PRST ())
+            If (^^^IGPU.PRST ())
             {
-                Store (^^^GFX0.GCBL (^^^GFX0.CBLV), Local0)
+                Store (^^^IGPU.GCBL (^^^IGPU.CBLV), Local0)
                 Subtract (0x0A, Local0, Local1)
                 If (LNotEqual (Local1, LBTN))
                 {
@@ -25966,14 +25966,14 @@ DT2D,8
             If (LGreaterEqual (MSOS (), OSVT))
             {
                 Store (LBTN, Local0)
-                If (^^^GFX0.PRST ())
+                If (^^^IGPU.PRST ())
                 {
-                    If (LNotEqual (^^^GFX0.LCDD._DCS (), 0x1F))
+                    If (LNotEqual (^^^IGPU.LCDD._DCS (), 0x1F))
                     {
                         Return (Zero)
                     }
 
-                    ^^^GFX0.DWBL ()
+                    ^^^IGPU.DWBL ()
                     Store (One, ASBN) /* \_SB_.PCI0.LPCB.EC0_.ASBN */
                 }
 
@@ -26044,14 +26044,14 @@ DT2D,8
             If (LGreaterEqual (MSOS (), OSVT))
             {
                 Store (LBTN, Local0)
-                If (^^^GFX0.PRST ())
+                If (^^^IGPU.PRST ())
                 {
-                    If (LNotEqual (^^^GFX0.LCDD._DCS (), 0x1F))
+                    If (LNotEqual (^^^IGPU.LCDD._DCS (), 0x1F))
                     {
                         Return (Zero)
                     }
 
-                    ^^^GFX0.UPBL ()
+                    ^^^IGPU.UPBL ()
                     Store (One, ASBN) /* \_SB_.PCI0.LPCB.EC0_.ASBN */
                 }
 
@@ -26896,7 +26896,7 @@ DT2D,8
 
                 If (And (VGAF, One))
                 {
-                    Store (One, ^^PCI0.GFX0.CLID) /* External reference */
+                    Store (One, ^^PCI0.IGPU.CLID) /* External reference */
                 }
 
                 Return (Local0)
@@ -26928,9 +26928,9 @@ DT2D,8
             {
                 Store (GLID (), Local0)
                 Store (Local0, LIDS) /* External reference */
-                If (CondRefOf (\_SB.PCI0.GFX0.GLID))
+                If (CondRefOf (\_SB.PCI0.IGPU.GLID))
                 {
-                    ^^^GFX0.GLID (LIDS)
+                    ^^^IGPU.GLID (LIDS)
                 }
             }
         }
