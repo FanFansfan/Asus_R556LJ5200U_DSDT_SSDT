@@ -9056,6 +9056,23 @@ If (Arg0)
                 Or (HCON, 0x02, HCON) /* \_SB_.PCI0.SBUS.HCON */
                 Or (HSTS, 0xFF, HSTS) /* \_SB_.PCI0.SBUS.HSTS */
             }
+            Device (BUS0)
+            {
+                Name (_CID, "smbus")
+                Name (_ADR, Zero)
+                Device (DVL0)
+                {
+                    Name (_ADR, 0x57)
+                    Name (_CID, "diagsvault")
+                    Method (_DSM, 4, NotSerialized)
+                    {
+                        Store (Package (0x02) {
+                            "address", 0x57			}, Local0)
+                        DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                        Return (Local0)
+                    }
+                }
+            }
         }
     }
 
