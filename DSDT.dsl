@@ -4709,13 +4709,16 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x01072009)
     })
     Method (_PTS, 1, NotSerialized)  // _PTS: Prepare To Sleep
     {
-        If (Arg0)
+        If (LEqual (Arg0, 0x05)) {}
+        Else
+        {
+If (Arg0)
         {
             \_SB.PCI0.LPCB.SPTS (Arg0)
             \_SB.PCI0.NPTS (Arg0)
             RPTS (Arg0)
             OEMS (Arg0)
-        }
+        }        }
     }
 
     Method (_WAK, 1, NotSerialized)  // _WAK: Wake
