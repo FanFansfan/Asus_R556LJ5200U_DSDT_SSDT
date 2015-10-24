@@ -27724,7 +27724,7 @@ DT2D,8
         Method (OWLD, 1, Serialized)
         {
             Store (Arg0, \_SB.WRST)
-            XOr (Arg0, One, Arg0)
+            
             If (LEqual (LAnd (\_SB.ATKD.WAPF, 0x05), Zero))
             {
                 SGPL (0x19, One, Arg0)
