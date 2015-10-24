@@ -63,7 +63,7 @@ DefinitionBlock ("SSDT1.aml", "SSDT", 1, "SataRe", "SataTabl", 0x00001000)
         }
     }
 
-    Scope (\_SB.PCI0.SAT0)
+    Scope (\_SB.PCI0.SATA)
     {
         Name (REGF, One)
         Method (_REG, 2, NotSerialized)  // _REG: Region Availability
