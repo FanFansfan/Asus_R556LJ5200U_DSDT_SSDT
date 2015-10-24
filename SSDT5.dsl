@@ -1,4 +1,4 @@
-K /*
+/*
  * Intel ACPI Component Architecture
  * AML/ASL+ Disassembler version 20150930-64
  * Copyright (c) 2000 - 2015 Intel Corporation
