@@ -27917,13 +27917,16 @@ DT2D,8
         {
             Name (_HID, EisaId ("PNP0103") /* HPET System Timer */)  // _HID: Hardware ID
             Name (_UID, Zero)  // _UID: Unique ID
-            Name (BUF0, ResourceTemplate ()
-            {
+            Name (BUF0, ResourceTemplate()
+{
+    IRQNoFlags() { 0, 8, 11, 15 }
+
                 Memory32Fixed (ReadWrite,
                     0xFED00000,         // Address Base
                     0x00000400,         // Address Length
                     _Y20)
             })
+
             Method (_STA, 0, NotSerialized)  // _STA: Status
             {
                 If (HPAE)
@@ -28066,8 +28069,7 @@ DT2D,8
                     0x01,               // Alignment
                     0x02,               // Length
                     )
-                IRQNoFlags ()
-                    {2}
+                
             })
         }
 
@@ -28240,8 +28242,7 @@ DT2D,8
                     0x01,               // Alignment
                     0x02,               // Length
                     )
-                IRQNoFlags ()
-                    {8}
+                
             })
         }
 
@@ -28262,8 +28263,7 @@ DT2D,8
                     0x10,               // Alignment
                     0x04,               // Length
                     )
-                IRQNoFlags ()
-                    {0}
+                
             })
         }
 
