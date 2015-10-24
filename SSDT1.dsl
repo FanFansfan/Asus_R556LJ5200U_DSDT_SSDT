@@ -27,7 +27,7 @@ DefinitionBlock ("SSDT1.aml", "SSDT", 1, "SataRe", "SataTabl", 0x00001000)
      */
     External (_SB_.PCI0.PEG0.PEGP.SGPO, MethodObj)    // 2 Arguments
 
-    External (_SB_.PCI0.SAT0, DeviceObj)
+    External (_SB_.PCI0.SATA, DeviceObj)
     External (DSSP, IntObj)
     External (FHPP, IntObj)
 
@@ -70,7 +70,7 @@ DefinitionBlock ("SSDT1.aml", "SSDT", 1, "SataRe", "SataTabl", 0x00001000)
         {
             If (LEqual (Arg0, 0x02))
             {
-                Store (Arg1, REGF) /* \_SB_.PCI0.SAT0.REGF */
+                Store (Arg1, REGF) /* \_SB_.PCI0.SATA.REGF */
             }
         }
 
@@ -82,12 +82,12 @@ DefinitionBlock ("SSDT1.aml", "SSDT", 1, "SataRe", "SataTabl", 0x00001000)
         CreateDWordField (TMD0, 0x10, CHNF)
         Method (_GTM, 0, NotSerialized)  // _GTM: Get Timing Mode
         {
-            Store (0x78, PIO0) /* \_SB_.PCI0.SAT0.PIO0 */
-            Store (0x14, DMA0) /* \_SB_.PCI0.SAT0.DMA0 */
-            Store (0x78, PIO1) /* \_SB_.PCI0.SAT0.PIO1 */
-            Store (0x14, DMA1) /* \_SB_.PCI0.SAT0.DMA1 */
-            Or (CHNF, 0x05, CHNF) /* \_SB_.PCI0.SAT0.CHNF */
-            Return (TMD0) /* \_SB_.PCI0.SAT0.TMD0 */
+            Store (0x78, PIO0) /* \_SB_.PCI0.SATA.PIO0 */
+            Store (0x14, DMA0) /* \_SB_.PCI0.SATA.DMA0 */
+            Store (0x78, PIO1) /* \_SB_.PCI0.SATA.PIO1 */
+            Store (0x14, DMA1) /* \_SB_.PCI0.SATA.DMA1 */
+            Or (CHNF, 0x05, CHNF) /* \_SB_.PCI0.SATA.CHNF */
+            Return (TMD0) /* \_SB_.PCI0.SATA.TMD0 */
         }
 
         Method (_STM, 3, NotSerialized)  // _STM: Set Timing Mode

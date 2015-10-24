@@ -8514,7 +8514,7 @@ If (Arg0)
             }
         }
 
-        Device (SAT0)
+        Device (SATA)
         {
             Name (_ADR, 0x001F0002)  // _ADR: Address
             Name (PRBI, Zero)
@@ -8567,14 +8567,14 @@ If (Arg0)
 
                 If (LEqual (Arg4, Zero))
                 {
-                    Return (RPCD) /* \_SB_.PCI0.SAT0.RDCA.RPCD */
+                    Return (RPCD) /* \_SB_.PCI0.SATA.RDCA.RPCD */
                 }
                 Else
                 {
                     If (LEqual (Arg4, 0x02))
                     {
-                        Store (Arg1, CAIR) /* \_SB_.PCI0.SAT0.RDCA.CAIR */
-                        Return (CADR) /* \_SB_.PCI0.SAT0.RDCA.CADR */
+                        Store (Arg1, CAIR) /* \_SB_.PCI0.SATA.RDCA.CAIR */
+                        Return (CADR) /* \_SB_.PCI0.SATA.RDCA.CADR */
                     }
                     Else
                     {
@@ -8582,16 +8582,16 @@ If (Arg0)
                         {
                             And (Arg2, RPCD, Local0)
                             Or (Arg3, Local0, Local0)
-                            Store (Local0, RPCD) /* \_SB_.PCI0.SAT0.RDCA.RPCD */
+                            Store (Local0, RPCD) /* \_SB_.PCI0.SATA.RDCA.RPCD */
                         }
                         Else
                         {
                             If (LEqual (Arg4, 0x03))
                             {
-                                Store (Arg1, CAIR) /* \_SB_.PCI0.SAT0.RDCA.CAIR */
+                                Store (Arg1, CAIR) /* \_SB_.PCI0.SATA.RDCA.CAIR */
                                 And (Arg2, CADR, Local0)
                                 Or (Arg3, Local0, Local0)
-                                Store (Local0, CADR) /* \_SB_.PCI0.SAT0.RDCA.CADR */
+                                Store (Local0, CADR) /* \_SB_.PCI0.SATA.RDCA.CADR */
                             }
                             Else
                             {
@@ -8679,18 +8679,18 @@ If (Arg0)
                         Return (Zero)
                     }
 
-                    Store (RDCA (Zero, 0x04, Zero, Zero, 0x02), PCMD) /* \_SB_.PCI0.SAT0.PCMD */
+                    Store (RDCA (Zero, 0x04, Zero, Zero, 0x02), PCMD) /* \_SB_.PCI0.SATA.PCMD */
                     If (LEqual (PCIT, One))
                     {
-                        Store (0x24, PRBI) /* \_SB_.PCI0.SAT0.PRBI */
-                        Store (RDCA (Zero, 0x24, Zero, Zero, 0x02), PRBD) /* \_SB_.PCI0.SAT0.PRBD */
+                        Store (0x24, PRBI) /* \_SB_.PCI0.SATA.PRBI */
+                        Store (RDCA (Zero, 0x24, Zero, Zero, 0x02), PRBD) /* \_SB_.PCI0.SATA.PRBD */
                     }
                     Else
                     {
                         If (LEqual (PCIT, 0x02))
                         {
-                            Store (0x10, PRBI) /* \_SB_.PCI0.SAT0.PRBI */
-                            Store (RDCA (Zero, 0x10, Zero, Zero, 0x02), PRBD) /* \_SB_.PCI0.SAT0.PRBD */
+                            Store (0x10, PRBI) /* \_SB_.PCI0.SATA.PRBI */
+                            Store (RDCA (Zero, 0x10, Zero, Zero, 0x02), PRBD) /* \_SB_.PCI0.SATA.PRBD */
                         }
                     }
 
@@ -10789,16 +10789,16 @@ If (Arg0)
         }
     }
 
-    Scope (_SB.PCI0.SAT0.PRT0)
+    Scope (_SB.PCI0.SATA.PRT0)
     {
         Name (FDEV, Zero)
         Name (FDRP, Zero)
         Method (_SDD, 1, Serialized)  // _SDD: Set Device Data
         {
             CreateByteField (Arg0, 0x9D, BFDS)
-            ToInteger (BFDS, FDEV) /* \_SB_.PCI0.SAT0.PRT0.FDEV */
+            ToInteger (BFDS, FDEV) /* \_SB_.PCI0.SATA.PRT0.FDEV */
             CreateByteField (Arg0, 0x9A, BFRP)
-            ToInteger (BFRP, FDRP) /* \_SB_.PCI0.SAT0.PRT0.FDRP */
+            ToInteger (BFRP, FDRP) /* \_SB_.PCI0.SATA.PRT0.FDRP */
         }
 
         Method (_GTF, 0, Serialized)  // _GTF: Get Task File
@@ -10810,18 +10810,18 @@ If (Arg0)
                 {
                      0x10, 0x09, 0x00, 0x00, 0x00, 0xB0, 0xEF         /* ....... */
                 })
-                Return (PIB1) /* \_SB_.PCI0.SAT0.PRT0._GTF.PIB1 */
+                Return (PIB1) /* \_SB_.PCI0.SATA.PRT0._GTF.PIB1 */
             }
 
             Name (PIB2, Buffer (0x07)
             {
                  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00         /* ....... */
             })
-            Return (PIB2) /* \_SB_.PCI0.SAT0.PRT0._GTF.PIB2 */
+            Return (PIB2) /* \_SB_.PCI0.SATA.PRT0._GTF.PIB2 */
         }
     }
 
-    Scope (_SB.PCI0.SAT0.PRT1)
+    Scope (_SB.PCI0.SATA.PRT1)
     {
         Name (FDEV, Zero)
         Name (FDRP, Zero)
@@ -10832,7 +10832,7 @@ If (Arg0)
             CreateWordField (Arg0, 0x01B2, W217)
             If (LEqual (SDPO, One))
             {
-                Store (One, SSDF) /* \_SB_.PCI0.SAT0.PRT1.SSDF */
+                Store (One, SSDF) /* \_SB_.PCI0.SATA.PRT1.SSDF */
             }
             Else
             {
@@ -10844,7 +10844,7 @@ If (Arg0)
                         {
                             If (LEqual (W217, One))
                             {
-                                Store (One, SSDF) /* \_SB_.PCI0.SAT0.PRT1.SSDF */
+                                Store (One, SSDF) /* \_SB_.PCI0.SATA.PRT1.SSDF */
                             }
                         }
                     }
@@ -10852,9 +10852,9 @@ If (Arg0)
             }
 
             CreateByteField (Arg0, 0x9D, BFDS)
-            ToInteger (BFDS, FDEV) /* \_SB_.PCI0.SAT0.PRT1.FDEV */
+            ToInteger (BFDS, FDEV) /* \_SB_.PCI0.SATA.PRT1.FDEV */
             CreateByteField (Arg0, 0x9A, BFRP)
-            ToInteger (BFRP, FDRP) /* \_SB_.PCI0.SAT0.PRT1.FDRP */
+            ToInteger (BFRP, FDRP) /* \_SB_.PCI0.SATA.PRT1.FDRP */
         }
 
         Method (_GTF, 0, Serialized)  // _GTF: Get Task File
@@ -10866,18 +10866,18 @@ If (Arg0)
                 {
                      0x10, 0x09, 0x00, 0x00, 0x00, 0xB0, 0xEF         /* ....... */
                 })
-                Return (PIB1) /* \_SB_.PCI0.SAT0.PRT1._GTF.PIB1 */
+                Return (PIB1) /* \_SB_.PCI0.SATA.PRT1._GTF.PIB1 */
             }
 
             Name (PIB2, Buffer (0x07)
             {
                  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00         /* ....... */
             })
-            Return (PIB2) /* \_SB_.PCI0.SAT0.PRT1._GTF.PIB2 */
+            Return (PIB2) /* \_SB_.PCI0.SATA.PRT1._GTF.PIB2 */
         }
     }
 
-    Scope (_SB.PCI0.SAT0.PRT2)
+    Scope (_SB.PCI0.SATA.PRT2)
     {
         Name (FDEV, Zero)
         Name (FDRP, Zero)
@@ -10888,7 +10888,7 @@ If (Arg0)
             CreateWordField (Arg0, 0x01B2, W217)
             If (LEqual (SDPO, One))
             {
-                Store (One, SSDF) /* \_SB_.PCI0.SAT0.PRT2.SSDF */
+                Store (One, SSDF) /* \_SB_.PCI0.SATA.PRT2.SSDF */
             }
             Else
             {
@@ -10900,7 +10900,7 @@ If (Arg0)
                         {
                             If (LEqual (W217, One))
                             {
-                                Store (One, SSDF) /* \_SB_.PCI0.SAT0.PRT2.SSDF */
+                                Store (One, SSDF) /* \_SB_.PCI0.SATA.PRT2.SSDF */
                             }
                         }
                     }
@@ -10908,9 +10908,9 @@ If (Arg0)
             }
 
             CreateByteField (Arg0, 0x9D, BFDS)
-            ToInteger (BFDS, FDEV) /* \_SB_.PCI0.SAT0.PRT2.FDEV */
+            ToInteger (BFDS, FDEV) /* \_SB_.PCI0.SATA.PRT2.FDEV */
             CreateByteField (Arg0, 0x9A, BFRP)
-            ToInteger (BFRP, FDRP) /* \_SB_.PCI0.SAT0.PRT2.FDRP */
+            ToInteger (BFRP, FDRP) /* \_SB_.PCI0.SATA.PRT2.FDRP */
         }
 
         Method (_GTF, 0, Serialized)  // _GTF: Get Task File
@@ -10922,27 +10922,27 @@ If (Arg0)
                 {
                      0x10, 0x09, 0x00, 0x00, 0x00, 0xB0, 0xEF         /* ....... */
                 })
-                Return (PIB1) /* \_SB_.PCI0.SAT0.PRT2._GTF.PIB1 */
+                Return (PIB1) /* \_SB_.PCI0.SATA.PRT2._GTF.PIB1 */
             }
 
             Name (PIB2, Buffer (0x07)
             {
                  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00         /* ....... */
             })
-            Return (PIB2) /* \_SB_.PCI0.SAT0.PRT2._GTF.PIB2 */
+            Return (PIB2) /* \_SB_.PCI0.SATA.PRT2._GTF.PIB2 */
         }
     }
 
-    Scope (_SB.PCI0.SAT0.PRT3)
+    Scope (_SB.PCI0.SATA.PRT3)
     {
         Name (FDEV, Zero)
         Name (FDRP, Zero)
         Method (_SDD, 1, Serialized)  // _SDD: Set Device Data
         {
             CreateByteField (Arg0, 0x9D, BFDS)
-            ToInteger (BFDS, FDEV) /* \_SB_.PCI0.SAT0.PRT3.FDEV */
+            ToInteger (BFDS, FDEV) /* \_SB_.PCI0.SATA.PRT3.FDEV */
             CreateByteField (Arg0, 0x9A, BFRP)
-            ToInteger (BFRP, FDRP) /* \_SB_.PCI0.SAT0.PRT3.FDRP */
+            ToInteger (BFRP, FDRP) /* \_SB_.PCI0.SATA.PRT3.FDRP */
         }
 
         Method (_GTF, 0, Serialized)  // _GTF: Get Task File
@@ -10954,14 +10954,14 @@ If (Arg0)
                 {
                      0x10, 0x09, 0x00, 0x00, 0x00, 0xB0, 0xEF         /* ....... */
                 })
-                Return (PIB1) /* \_SB_.PCI0.SAT0.PRT3._GTF.PIB1 */
+                Return (PIB1) /* \_SB_.PCI0.SATA.PRT3._GTF.PIB1 */
             }
 
             Name (PIB2, Buffer (0x07)
             {
                  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00         /* ....... */
             })
-            Return (PIB2) /* \_SB_.PCI0.SAT0.PRT3._GTF.PIB2 */
+            Return (PIB2) /* \_SB_.PCI0.SATA.PRT3._GTF.PIB2 */
         }
     }
 
@@ -15262,7 +15262,7 @@ If (Arg0)
         }
     }
 
-    Scope (_SB.PCI0.SAT0)
+    Scope (_SB.PCI0.SATA)
     {
         Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
         {
@@ -16079,7 +16079,7 @@ If (Arg0)
 
                 Package (0x01)
                 {
-                    "\\_SB.PCI0.SAT0.PRT1"
+                    "\\_SB.PCI0.SATA.PRT1"
                 }
             })
             Name (DEVX, Package (0x08)
@@ -16092,7 +16092,7 @@ If (Arg0)
 
                 Package (0x02)
                 {
-                    "\\_SB.PCI0.SAT0.PRT1", 
+                    "\\_SB.PCI0.SATA.PRT1", 
                     0xFFFFFFFF
                 }, 
 
@@ -16211,7 +16211,7 @@ If (Arg0)
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.SAT0", 
+                    "\\_SB.PCI0.SATA", 
                     Zero, 
                     Package (0x02)
                     {
@@ -16227,7 +16227,7 @@ If (Arg0)
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.SAT0.PRT0", 
+                    "\\_SB.PCI0.SATA.PRT0", 
                     Zero, 
                     Package (0x02)
                     {
@@ -16243,7 +16243,7 @@ If (Arg0)
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.SAT0.PRT1", 
+                    "\\_SB.PCI0.SATA.PRT1", 
                     Zero, 
                     Package (0x02)
                     {
@@ -16259,7 +16259,7 @@ If (Arg0)
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.SAT0.PRT2", 
+                    "\\_SB.PCI0.SATA.PRT2", 
                     Zero, 
                     Package (0x02)
                     {
@@ -16275,7 +16275,7 @@ If (Arg0)
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.SAT0.PRT3", 
+                    "\\_SB.PCI0.SATA.PRT3", 
                     Zero, 
                     Package (0x02)
                     {
@@ -16681,7 +16681,7 @@ If (Arg0)
             {
                 Package (0x02)
                 {
-                    "\\_SB.PCI0.SAT0", 
+                    "\\_SB.PCI0.SATA", 
                     Package (0x01)
                     {
                         Package (0x03)
@@ -16709,7 +16709,7 @@ If (Arg0)
 
                 Package (0x02)
                 {
-                    "\\_SB.PCI0.SAT0.PRT0", 
+                    "\\_SB.PCI0.SATA.PRT0", 
                     Package (0x01)
                     {
                         Package (0x03)
@@ -16737,7 +16737,7 @@ If (Arg0)
 
                 Package (0x02)
                 {
-                    "\\_SB.PCI0.SAT0.PRT1", 
+                    "\\_SB.PCI0.SATA.PRT1", 
                     Package (0x01)
                     {
                         Package (0x03)
@@ -16765,7 +16765,7 @@ If (Arg0)
 
                 Package (0x02)
                 {
-                    "\\_SB.PCI0.SAT0.PRT2", 
+                    "\\_SB.PCI0.SATA.PRT2", 
                     Package (0x01)
                     {
                         Package (0x03)
@@ -16793,7 +16793,7 @@ If (Arg0)
 
                 Package (0x02)
                 {
-                    "\\_SB.PCI0.SAT0.PRT3", 
+                    "\\_SB.PCI0.SATA.PRT3", 
                     Package (0x01)
                     {
                         Package (0x03)
@@ -17102,7 +17102,7 @@ If (Arg0)
                                             One, 
                                             Package (0x01)
                                             {
-                                                "\\_SB.PCI0.SAT0.PRT1"
+                                                "\\_SB.PCI0.SATA.PRT1"
                                             }
                                         })
                                     }

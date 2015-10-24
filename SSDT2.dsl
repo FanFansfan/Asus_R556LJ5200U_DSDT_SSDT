@@ -27,8 +27,8 @@ DefinitionBlock ("SSDT2.aml", "SSDT", 1, "Intel", "zpodd", 0x00001000)
      */
     External (_SB_.PCI0.PEG0.PEGP.SGPO, MethodObj)    // 2 Arguments
 
-    External (_SB_.PCI0.SAT0, DeviceObj)
-    External (_SB_.PCI0.SAT0.PRT1, DeviceObj)
+    External (_SB_.PCI0.SATA, DeviceObj)
+    External (_SB_.PCI0.SATA.PRT1, DeviceObj)
     External (_SB_.WTGP, MethodObj)    // 2 Arguments
     External (ADBG, MethodObj)    // 1 Arguments
     External (BID_, FieldUnitObj)
@@ -37,7 +37,7 @@ DefinitionBlock ("SSDT2.aml", "SSDT", 1, "Intel", "zpodd", 0x00001000)
 
     If (LAnd (LOr (LEqual (BID, 0x20), LEqual (BID, 0x24)), LEqual (RTD3, Zero)))
     {
-        Scope (\_SB.PCI0.SAT0)
+        Scope (\_SB.PCI0.SATA)
         {
             Scope (PRT1)
             {
@@ -49,13 +49,13 @@ DefinitionBlock ("SSDT2.aml", "SSDT", 1, "Intel", "zpodd", 0x00001000)
                     {
                         While (One)
                         {
-                            Store (ToInteger (Arg2), T_0) /* \_SB_.PCI0.SAT0.PRT1._DSM.T_0 */
+                            Store (ToInteger (Arg2), T_0) /* \_SB_.PCI0.SATA.PRT1._DSM.T_0 */
                             If (LEqual (T_0, Zero))
                             {
                                 ADBG ("Case 0")
                                 While (One)
                                 {
-                                    Store (ToInteger (Arg1), T_1) /* \_SB_.PCI0.SAT0.PRT1._DSM.T_1 */
+                                    Store (ToInteger (Arg1), T_1) /* \_SB_.PCI0.SATA.PRT1._DSM.T_1 */
                                     If (LEqual (T_1, One))
                                     {
                                         Return (Buffer (One)
@@ -125,7 +125,7 @@ DefinitionBlock ("SSDT2.aml", "SSDT", 1, "Intel", "zpodd", 0x00001000)
             {
                 ADBG ("L11 Notify")
                 Store (One, \GO17) /* External reference */
-                Notify (\_SB.PCI0.SAT0, 0x81) // Information Change
+                Notify (\_SB.PCI0.SATA, 0x81) // Information Change
             }
         }
     }
